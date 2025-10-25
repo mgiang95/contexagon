@@ -1,0 +1,334 @@
+/* ==========================================================================
+   COMPONENT / SCROLLBAR
+   ========================================================================== */
+
+/* Light Mode Token Definitions */
+[data-theme="light"] {
+  /* Scrollbar Dimensions */
+  --c-scrollbar-width-default: 12px;
+  --c-scrollbar-width-thin: 7px;
+  --c-scrollbar-width-code: 6px;
+  --c-scrollbar-height-default: 12px;
+  --c-scrollbar-height-thin: 8px;
+  --c-scrollbar-height-code: 6px;
+
+  /* Light Mode Colors */
+  --c-scrollbar-track-bg: var(--p-neutral-100);
+  --c-scrollbar-track-bg-thin: var(--p-neutral-50);
+  --c-scrollbar-track-bg-code: var(--p-neutral-100);
+  --c-scrollbar-track-bg-overlay: transparent;
+
+  --c-scrollbar-thumb-bg: var(--p-neutral-400);
+  --c-scrollbar-thumb-bg-thin: var(--p-neutral-300);
+  --c-scrollbar-thumb-bg-code: var(--p-neutral-400);
+  --c-scrollbar-thumb-bg-hover: var(--p-neutral-300);
+  --c-scrollbar-thumb-bg-hover-thin: var(--p-neutral-200);
+  --c-scrollbar-thumb-bg-hover-code: var(--p-neutral-300);
+  --c-scrollbar-thumb-bg-active: var(--p-accent-500);
+
+  --c-scrollbar-thumb-border: var(--p-neutral-100);
+  --c-scrollbar-thumb-border-thin: var(--p-neutral-100);
+  --c-scrollbar-thumb-border-overlay: transparent;
+
+  --c-scrollbar-corner-bg: var(--p-neutral-100, #f5f5f5);
+
+  /* Border Radius */
+  --c-scrollbar-radius-default: var(--p-radius-s);
+  --c-scrollbar-radius-thin: var(--p-radius-xs);
+  --c-scrollbar-radius-overlay: var(--p-radius-pill);
+
+  /* Border Width */
+  --c-scrollbar-border-width-default: 2px;
+  --c-scrollbar-border-width-thin: 1px;
+  --c-scrollbar-border-width-overlay: 3px;
+
+  /* Firefox specific */
+  --c-scrollbar-firefox-width: auto;
+  --c-scrollbar-firefox-width-thin: thin;
+  --c-scrollbar-firefox-thumb: var(--p-neutral-300);
+  --c-scrollbar-firefox-track: var(--p-neutral-100);
+  --c-scrollbar-firefox-thumb-thin: var(--p-neutral-300);
+  --c-scrollbar-firefox-track-thin: var(--p-neutral-50);
+
+  /* Transitions */
+  --c-scrollbar-transition: background-color var(--p-transition-duration-fast)
+    var(--p-transition-timing);
+}
+
+/* Dark Mode Token Overrides */
+[data-theme="dark"] {
+  /* Dark Mode Track Colors */
+  --c-scrollbar-track-bg: var(--p-neutral-800);
+  --c-scrollbar-track-bg-thin: var(--p-neutral-800);
+  --c-scrollbar-track-bg-code: var(--p-neutral-800);
+
+  /* Dark Mode Thumb Colors */
+  --c-scrollbar-thumb-bg: var(--p-neutral-500);
+  --c-scrollbar-thumb-bg-thin: var(--p-neutral-500);
+  --c-scrollbar-thumb-bg-code: var(--p-neutral-500);
+  --c-scrollbar-thumb-bg-hover: var(--p-neutral-400);
+  --c-scrollbar-thumb-bg-hover-thin: var(--p-neutral-400);
+  --c-scrollbar-thumb-bg-hover-code: var(--p-neutral-400);
+  --c-scrollbar-thumb-bg-active: var(--p-accent-500);
+
+  /* Dark Mode Borders */
+  --c-scrollbar-thumb-border: var(--p-neutral-800);
+  --c-scrollbar-thumb-border-thin: var(--p-neutral-800);
+  --c-scrollbar-corner-bg: var(--p-neutral-900);
+
+  /* Dark Mode Firefox */
+  --c-scrollbar-firefox-thumb: var(--p-neutral-500);
+  --c-scrollbar-firefox-track: var(--p-neutral-800);
+  --c-scrollbar-firefox-thumb-thin: var(--p-neutral-600, #525252);
+  --c-scrollbar-firefox-track-thin: var(--p-neutral-800);
+}
+
+/* High Contrast Mode Token Overrides */
+@media (prefers-contrast: high) {
+  [data-theme="light"] {
+    --c-scrollbar-thumb-bg: var(--p-neutral-700, #404040);
+    --c-scrollbar-thumb-bg-hover: var(--p-neutral-900, #171717);
+    --c-scrollbar-thumb-border: var(--p-neutral-800);
+    --c-scrollbar-firefox-thumb: var(--p-neutral-700, #404040);
+    --c-scrollbar-firefox-track: var(--p-neutral-200, #e4e4e7);
+  }
+
+  [data-theme="dark"] {
+    --c-scrollbar-thumb-bg: var(--p-neutral-300, #d4d4d8);
+    --c-scrollbar-thumb-bg-hover: var(--p-neutral-100, #f5f5f5);
+    --c-scrollbar-thumb-border: var(--p-neutral-200);
+    --c-scrollbar-firefox-thumb: var(--p-neutral-300, #d4d4d8);
+    --c-scrollbar-firefox-track: var(--p-neutral-700, #404040);
+  }
+}
+
+/* Reduced Motion Token Overrides */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="light"],
+  [data-theme="dark"] {
+    --c-scrollbar-transition: none;
+  }
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR STYLES
+   ========================================================================== */
+
+/* Webkit-based browsers (Chrome, Safari, Edge) */
+/* Main scrollbar track */
+::-webkit-scrollbar {
+  width: var(--c-scrollbar-width-default);
+  height: var(--c-scrollbar-height-default);
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: var(--c-scrollbar-track-bg);
+  border-radius: var(--c-scrollbar-radius-default);
+}
+
+/* Scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar-thumb-bg);
+  border-radius: var(--c-scrollbar-radius-overlay, 9999px);
+  /* Statt border, nutze inset shadow */
+  box-shadow: inset 0 0 0 2px var(--c-scrollbar-thumb-border);
+  transition: var(--c-scrollbar-transition);
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-thumb-bg-hover);
+}
+
+/* Scrollbar handle when active/pressed */
+::-webkit-scrollbar-thumb:active {
+  background: var(--c-scrollbar-thumb-bg-active);
+}
+
+/* Scrollbar corner (where horizontal and vertical meet) */
+::-webkit-scrollbar-corner {
+  background: var(--c-scrollbar-corner-bg);
+}
+
+/* ==========================================================================
+   THIN SCROLLBARS FOR SMALLER ELEMENTS
+   ========================================================================== */
+
+/* For smaller containers or overlays */
+.scrollbar--thin::-webkit-scrollbar,
+.modal::-webkit-scrollbar,
+.dropdown::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: var(--c-scrollbar-width-thin);
+  height: var(--c-scrollbar-height-thin);
+}
+
+.scrollbar--thin::-webkit-scrollbar-track,
+.modal::-webkit-scrollbar-track,
+.dropdown::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track {
+  background: var(--c-scrollbar-track-bg-thin);
+  border-radius: var(--c-scrollbar-radius-thin);
+}
+
+.scrollbar--thin::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb,
+.dropdown::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar-thumb-bg-thin);
+  border-radius: var(--c-scrollbar-radius-thin);
+  /*  border: var(--c-scrollbar-border-width-thin) solid var(--c-scrollbar-thumb-border-thin);*/
+}
+
+.scrollbar--thin::-webkit-scrollbar-thumb:hover,
+.modal::-webkit-scrollbar-thumb:hover,
+.dropdown::-webkit-scrollbar-thumb:hover,
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-thumb-bg-hover-thin);
+}
+
+/* ==========================================================================
+   CODE BLOCK SCROLLBARS
+   ========================================================================== */
+
+/* Custom scrollbar for code blocks */
+.code-block::-webkit-scrollbar,
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar {
+  width: var(--c-scrollbar-width-code);
+  height: var(--c-scrollbar-height-code);
+}
+
+.code-block::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track,
+code::-webkit-scrollbar-track {
+  background: var(--c-scrollbar-track-bg-code);
+  border-radius: var(--c-scrollbar-radius-thin);
+}
+
+.code-block::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb,
+code::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar-thumb-bg-code);
+  border-radius: var(--c-scrollbar-radius-thin);
+  border: none;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover,
+pre::-webkit-scrollbar-thumb:hover,
+code::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-thumb-bg-hover-code);
+}
+
+/* ==========================================================================
+   FIREFOX SCROLLBAR STYLES
+   ========================================================================== */
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: var(--c-scrollbar-firefox-width);
+  scrollbar-color: var(--c-scrollbar-firefox-thumb)
+    var(--c-scrollbar-firefox-track);
+}
+
+/* Thin scrollbars for Firefox */
+.scrollbar--thin,
+.modal,
+.dropdown,
+.sidebar {
+  scrollbar-width: var(--c-scrollbar-firefox-width-thin);
+  scrollbar-color: var(--c-scrollbar-firefox-thumb-thin)
+    var(--c-scrollbar-firefox-track-thin);
+}
+
+/* Code blocks for Firefox */
+.code-block,
+pre,
+code {
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-scrollbar-thumb-bg-code)
+    var(--c-scrollbar-track-bg-code);
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+/* Hide scrollbars completely */
+.scrollbar--hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollbar--hidden::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+/* Overlay scrollbar (macOS style) */
+.scrollbar--overlay {
+  overflow: overlay; /* Deprecated but still works in some browsers */
+  overflow: auto;
+}
+
+.scrollbar--overlay::-webkit-scrollbar {
+  width: var(--c-scrollbar-width-default);
+  height: var(--c-scrollbar-height-default);
+}
+
+.scrollbar--overlay::-webkit-scrollbar-track {
+  background: var(--c-scrollbar-track-bg-overlay);
+}
+
+.scrollbar--overlay::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar-thumb-bg);
+  border-radius: var(--c-scrollbar-radius-overlay);
+  /*  border: var(--c-scrollbar-border-width-overlay) solid var(--c-scrollbar-thumb-border-overlay);*/
+  background-clip: content-box;
+}
+
+.scrollbar--overlay::-webkit-scrollbar-thumb:hover {
+  background: var(--c-scrollbar-thumb-bg-hover);
+  background-clip: content-box;
+}
+
+/* Auto-hide scrollbar (shows on hover/scroll) */
+.scrollbar--auto-hide {
+  overflow: auto;
+}
+
+.scrollbar--auto-hide::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  transition: width 0.3s, height 0.3s;
+}
+
+.scrollbar--auto-hide:hover::-webkit-scrollbar,
+.scrollbar--auto-hide:focus::-webkit-scrollbar {
+  width: var(--c-scrollbar-width-thin);
+  height: var(--c-scrollbar-height-thin);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
+/* Touch devices - slightly wider for better usability */
+@media (pointer: coarse) {
+  :root {
+    --c-scrollbar-width-default: 16px;
+    --c-scrollbar-height-default: 16px;
+    --c-scrollbar-width-thin: 12px;
+    --c-scrollbar-height-thin: 12px;
+  }
+}
+
+/* Small screens - thinner scrollbars to save space */
+@media (max-width: 768px) {
+  :root {
+    --c-scrollbar-width-default: 8px;
+    --c-scrollbar-height-default: 8px;
+    --c-scrollbar-width-thin: 6px;
+    --c-scrollbar-height-thin: 6px;
+  }
+}

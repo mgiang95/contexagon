@@ -1,0 +1,121 @@
+/* ============================================
+   tokens/semantics/glass-effects.css
+   Semantic tokens for glass effects across components
+   ============================================ */
+
+:root {
+  /* ===== GLASS EFFECT FOUNDATION ===== */
+  --s-glass-angle: 230deg;
+  --s-glass-blur: var(--p-blur-l);
+  --s-glass-border-width: var(--p-border-width-m);
+
+  --s-glass-s-bg-start: oklch(from var(--p-primary-50) l c h / 0.2);
+  --s-glass-s-bg-end: oklch(from var(--p-primary-50) l c h / 0.33);
+  --s-glass-s-bg-start-hover: color-mix(
+    in oklch,
+    var(--s-glass-s-bg-start) 70%,
+    var(--s-interactive-primary)
+  );
+  --s-glass-s-bg-end-hover: color-mix(
+    in oklch,
+    var(--s-glass-s-bg-end) 75%,
+    var(--s-interactive-primary)
+  );
+
+  --s-glass-m-bg-start: oklch(from var(--p-primary-50) l c h / 0.2);
+  --s-glass-m-bg-end: oklch(from var(--p-primary-50) l c h / 0.33);
+  --s-glass-m-bg-start-hover: color-mix(
+    in oklch,
+    var(--s-glass-bg-start) 60%,
+    var(--s-interactive-primary)
+  );
+  --s-glass-m-bg-end-hover: color-mix(
+    in oklch,
+    var(--s-glass-bg-end) 80%,
+    var(--s-interactive-primary)
+  );
+
+  /* Composed Glass Background */
+  --s-glass-s-bg: linear-gradient(
+    var(--s-glass-angle),
+    var(--s-glass-s-bg-start),
+    var(--s-glass-s-bg-end)
+  );
+  --s-glass-s-bg-hover: linear-gradient(
+    var(--s-glass-angle),
+    var(--s-glass-s-bg-start-hover),
+    var(--s-glass-s-bg-end-hover)
+  );
+
+  --s-glass-m-bg: linear-gradient(
+    var(--s-glass-angle),
+    var(--s-glass-m-bg-start),
+    var(--s-glass-m-bg-end)
+  );
+  --s-glass-m-bg-hover: linear-gradient(
+    var(--s-glass-angle),
+    var(--s-glass-m-bg-start-hover),
+    var(--s-glass-m-bg-end-hover)
+  );
+
+  /* Glass Border Gradients */
+  --s-glass-border-start: oklch(from var(--p-primary-900) l c h / 0.33);
+  --s-glass-border-end: oklch(from var(--p-primary-900) l c h / 0.16);
+  --s-glass-border-start-hover: oklch(from var(--p-accent-500) l c h / 1);
+  --s-glass-border-end-hover: oklch(from var(--p-accent-500) l c h / 0.5);
+
+  /* Composed Glass Border */
+  --s-glass-border-image: linear-gradient(
+    var(--s-glass-angle),
+    var(--s-glass-border-start),
+    var(--s-glass-border-end)
+  );
+  --s-glass-border-hover: linear-gradient(
+    var(--s-glass-angle),
+    var(--s-glass-bg-start-hover),
+    var(--s-glass-bg-end-hover)
+  ); /*Anpassen*/
+
+  /* Glass Shadow */
+  --s-glass-shadow: var(--p-shadow-m);
+  --s-glass-shadow-hover: var(--p-shadow-l);
+
+  /* Glass Text Colors */
+  --s-text-on-glass: var(--s-text-primary);
+}
+
+/* Dark Mode Glass Overrides */
+[data-theme="dark"] {
+  --s-glass-s-bg-start: oklch(from var(--p-primary-950) l c h / 0.16);
+  --s-glass-s-bg-end: oklch(from var(--p-primary-950) l c h / 0.32);
+  --s-glass-s-bg-start-hover: color-mix(
+    in oklch,
+    var(--s-glass-s-bg-start) 70%,
+    var(--s-interactive-primary)
+  );
+  --s-glass-s-bg-end-hover: color-mix(
+    in oklch,
+    var(--s-glass-s-bg-end) 85%,
+    var(--s-interactive-primary)
+  );
+
+  --s-glass-m-bg-start: oklch(from var(--p-primary-950) l c h / 0.08);
+  --s-glass-m-bg-end: oklch(from var(--p-primary-950) l c h / 0.16);
+  --s-glass-m-bg-start-hover: color-mix(
+    in oklch,
+    var(--s-glass-m-bg-start) 90%,
+    var(--s-interactive-primary)
+  );
+  --s-glass-m-bg-end-hover: color-mix(
+    in oklch,
+    var(--s-glass-m-bg-end) 95%,
+    var(--s-interactive-primary)
+  );
+
+  --s-glass-border-start: oklch(from var(--p-primary-50) l c h / 0.33);
+  --s-glass-border-end: oklch(from var(--p-primary-200) l c h / 0.16);
+  --s-glass-border-start-hover: oklch(
+    from var(--s-interactive-primary) l c h / 1
+  );
+  --s-glass-border-end-hover: oklch(from var(--p-primary-50) l c h / 0.1);
+}

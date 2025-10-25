@@ -1,0 +1,45 @@
+.site-footer {
+  background-color: var(--c-section-primary-elevated);
+}
+
+.footer-widgets-container {
+  padding: clamp(2rem, 1.2727rem + 3.6364vw, 4rem)
+    clamp(0rem, -1.4545rem + 7.2727vw, 4rem) !important;
+}
+
+.footer-icon {
+  color: var(--text-color);
+  margin-bottom: 0 !important;
+}
+
+.footer-icon svg {
+  fill: currentcolor;
+  transition: fill 0.2s ease-in-out;
+  -webkit-transition: fill 0.2s ease-in-out;
+  width: 72px;
+  height: 72px;
+}
+
+.footer-icon:hover {
+  fill: var(--interactive-primary);
+}
+
+.footer-logo {
+  width: clamp(9.375rem, 8.2386rem + 5.6818cqi, 12.5rem);
+}
+
+/* Responsive Design */
+
+/* Tablet-Geräte 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .footer-widgets-container {
+	padding: 4rem 2rem !important;
+  }
+}
+*/
+/* Mobile-Geräte 
+@media (max-width: 767px) {
+  .footer-widgets-container {
+	padding: 2rem 1rem !important;
+  }
+}*/

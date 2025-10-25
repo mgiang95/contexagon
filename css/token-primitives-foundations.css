@@ -1,0 +1,84 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* General Styles */
+:root {
+  /*------------------------ Animation ------------------------*/
+  --p-transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Transition duration */
+  --p-transition-duration-instant: 0.1s;
+  --p-transition-duration-fast: 0.2s;
+  --p-transition-duration: 0.3s; /* legacy */
+  --p-transition-duration-medium: 0.3s;
+  --p-transition-duration-slow: 0.5s;
+  --p-transition-duration-delayed: 1s;
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --p-transition-timing: linear;
+      --p-transition-duration-instant: 0s;
+      --p-transition-duration-fast: 0s;
+      --p-transition-duration-medium: 0s;
+      --p-transition-duration: 0s;
+      --p-transition-duration-slow: 0s;
+      --p-transition-duration-delayed: 0s;
+    }
+
+    /* Optional: Alle Animationen und Transitions komplett deaktivieren */
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /*------------------------ Border ------------------------*/
+  --p-border-radius: 1rem; /* deprecated */
+
+  --p-border-width-s: 0.5px;
+  --p-border-width-m: 1px;
+  --p-border-width-l: 2px;
+  --p-border-width-xl: 3px;
+
+  /* Radii */
+  --p-radius-xs: 2px;
+  --p-radius-s: 4px;
+  --p-radius-m: 8px;
+  --p-radius-l: 12px;
+  --p-radius-xl: 16px;
+  --p-radius-2xl: 24px;
+  --p-radius-pill: 9999px;
+  --p-radius-full: 50%;
+
+  /*------------------------ Effects ------------------------*/
+  /* Blur */
+  --p-blur-xs: 4px;
+  --p-blur-s: 8px;
+  --p-blur-m: 12px;
+  --p-blur-l: 16px;
+  --p-blur-xl: 24px;
+
+  /* Shadow */
+  --_shadow-color: oklch(from var(--p-primary-900) l c h / 0.5);
+
+  --p-shadow-none: none;
+  --p-shadow-xs: 0 1px 2px oklch(from var(--_shadow-color) l c h / 0.05);
+  --p-shadow-s: 0 1px 3px oklch(from var(--_shadow-color) l c h / 0.08),
+    0 1px 2px oklch(from var(--_shadow-color) l c h / 0.06);
+  --p-shadow-m: 0 4px 6px oklch(from var(--_shadow-color) l c h / 0.09),
+    0 2px 4px oklch(from var(--_shadow-color) l c h / 0.06);
+  --p-shadow-l: 0 10px 15px oklch(from var(--_shadow-color) l c h / 0.1),
+    0 4px 6px oklch(from var(--_shadow-color) l c h / 0.08);
+  --p-shadow-xl: 0 20px 25px oklch(from var(--_shadow-color) l c h / 0.12),
+    0 8px 10px oklch(from var(--_shadow-color) l c h / 0.08);
+  --p-shadow-2xl: 0 25px 50px oklch(from var(--_shadow-color) l c h / 0.15);
+  --p-shadow-inner: inset 0 2px 4px
+    oklch(from var(--_shadow-color) l c h / 0.05);
+}

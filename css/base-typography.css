@@ -1,0 +1,417 @@
+/* =================================
+   BASE/TYPOGRAPHY
+   Element Styles for Typography + Font Scaling
+   ================================= */
+
+/* =================================
+   WordPress content overrides
+   ================================= */
+
+.entry-content h1:first-child,
+.entry-content .h1:first-child,
+.post-content h1:first-child,
+.post-content .h1:first-child {
+  margin-top: 0 !important;
+}
+
+/* GeneratePress Header-Integration */
+.site-header .display,
+.main-title .display {
+  margin-bottom: 0 !important;
+}
+
+/* Gutenberg Editor Support */
+.editor-styles-wrapper {
+  font-family: var(--p-font-family-base) !important;
+}
+
+.editor-styles-wrapper .wp-block {
+  max-width: none !important;
+}
+
+/* GeneratePress Navigation Override */
+.main-navigation a {
+  font-family: var(--p-font-family-base) !important;
+  font-weight: var(--s-font-weight-body) !important;
+  font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  ) !important;
+}
+
+/* WordPress Widgets Typography */
+.widget h1,
+.widget h2,
+.widget h3,
+.widget h4,
+.widget h5,
+.widget h6 {
+  font-family: var(--p-font-family-heading) !important;
+  margin-bottom: var(--p-spacing-s) !important;
+}
+
+.widget p {
+  font-size: calc(
+    var(--s-font-size-small) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-body) !important;
+}
+
+/* WordPress Comments */
+.comment-content p {
+  font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-body) !important;
+}
+
+/* Breadcrumbs Override */
+.breadcrumb-trail,
+.rank-math-breadcrumb {
+  font-size: calc(
+    var(--s-font-size-small) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-small) !important;
+}
+
+/* Reset p margins */
+p {
+  padding: 0;
+  margin: 0;
+}
+
+/* Font Scale Multiplier für A11y */
+:root {
+  --_font-scale-multiplier: 1; /* Default */
+}
+
+/* Root settings for better Performance */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--p-font-family-base) !important;
+  font-weight: var(--s-font-weight-body) !important;
+  line-height: var(--s-line-height-body) !important;
+  font-feature-settings: var(--p-font-features-base) !important;
+  letter-spacing: var(--s-letter-spacing-body) !important;
+}
+
+/* Display (für Hero-Sections) - mit Scaling */
+.display {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-display) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-display) !important;
+  line-height: var(--s-line-height-display) !important;
+  letter-spacing: var(--s-letter-spacing-display) !important;
+  margin: 0 0 var(--p-spacing-xl) 0 !important;
+}
+
+/* Headings mit strategischem !important + Font Scaling */
+h1,
+.h1 {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h1) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-heading) !important;
+  line-height: var(--s-line-height-heading) !important;
+  letter-spacing: var(--s-letter-spacing-heading) !important;
+  margin: 0 0 var(--p-spacing-l) 0 !important;
+}
+
+h2,
+.h2 {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h2) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-heading) !important;
+  line-height: var(--s-line-height-heading) !important;
+  letter-spacing: var(--s-letter-spacing-heading) !important;
+  margin: 0 0 var(--p-spacing-m) 0 !important;
+}
+
+h3,
+.h3 {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h3) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-heading) !important;
+  line-height: var(--s-line-height-heading) !important;
+  letter-spacing: var(--s-letter-spacing-heading) !important;
+  margin: 0 0 var(--p-spacing-m) 0 !important;
+}
+
+h4,
+.h4 {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h4) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-subheading) !important;
+  line-height: var(--s-line-height-subheading) !important;
+  letter-spacing: var(--s-letter-spacing-heading) !important;
+  margin: 0 0 var(--p-spacing-s) 0 !important;
+}
+
+h5,
+.h5 {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h5) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-subheading) !important;
+  line-height: var(--s-line-height-subheading) !important;
+  letter-spacing: var(--s-letter-spacing-heading) !important;
+  margin: 0 0 var(--p-spacing-s) 0 !important;
+}
+
+h6,
+.h6 {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h6) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-subheading) !important;
+  line-height: var(--s-line-height-subheading) !important;
+  letter-spacing: var(--s-letter-spacing-heading) !important;
+  margin: 0 0 var(--p-spacing-xs) 0 !important;
+}
+
+/* Body Text Varianten mit !important + Scaling */
+p,
+.p {
+  font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-body) !important;
+  margin-bottom: 1.3em; /* var(--p-spacing-3xs) */
+}
+
+p:last-child,
+.p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Utility Classes */
+
+.body--large {
+  font-size: calc(
+    var(--s-font-size-body-large) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-emphasis) !important;
+}
+
+.body--emphasis {
+  font-weight: var(--s-font-weight-emphasis) !important;
+}
+
+.text--small,
+.s {
+  font-size: calc(
+    var(--s-font-size-small) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-small) !important;
+  letter-spacing: var(--s-letter-spacing-small) !important;
+}
+
+.text--tiny,
+.xs {
+  font-size: calc(
+    var(--s-font-size-tiny) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-small) !important;
+  letter-spacing: var(--s-letter-spacing-small) !important;
+}
+
+.text--caption {
+  font-size: calc(
+    var(--s-font-size-caption) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-caption) !important;
+  letter-spacing: var(--s-letter-spacing-caption) !important;
+  color: var(--s-text-secondary) !important;
+}
+
+.eyebrow-text {
+  font-family: var(--p-font-family-heading) !important;
+  font-size: calc(var(--font-size-p) * var(--_font-scale-multiplier));
+  line-height: var(--line-height-p);
+  letter-spacing: 1px;
+  font-weight: var(--p-font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.oxanium {
+  font-family: "Oxanium", sans-serif;
+}
+
+.brand-text {
+  font-family: var(--p-font-family-heading) !important;
+}
+
+/* ============================================
+   Link Styles - Accessibility & Print
+   ============================================ */
+
+/* Base Link Styling */
+a {
+  /* Color System */
+  color: var(--s-text-link);
+
+  /* Always visible underline for accessibility */
+  text-decoration: underline !important;
+  text-decoration-color: currentColor !important;
+  text-decoration-thickness: 0.0625em !important;
+  text-underline-offset: 0.125em !important;
+
+  /* Smooth transitions */
+  transition: color var(--p-transition-duration-fast) var(--p-transition-timing),
+    text-decoration-thickness var(--p-transition-duration-instant)
+      var(--p-transition-timing),
+    text-underline-offset var(--p-transition-duration-instant)
+      var(--p-transition-timing),
+    outline-offset var(--p-transition-duration-instant)
+      var(--p-transition-timing) !important;
+
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+/* Hover State */
+a:hover {
+  color: var(--s-text-link-hover);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.1875em;
+}
+
+/* Active/Pressed State */
+a:active {
+  color: var(--s-text-link-active);
+  text-decoration-thickness: 0.125em;
+}
+
+/* Visited */
+a:visited {
+  color: var(--s-text-link-visited);
+}
+
+/* Focus */
+a:focus {
+  outline: none !important;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--s-focus-ring, var(--p-accent-500)) !important;
+  outline-offset: 4px !important;
+  border-radius: 2px !important;
+  text-decoration-thickness: 0.125em !important;
+  color: var(--s-text-link-hover) !important;
+  background-color: var(
+    --s-focus-ring-alpha,
+    rgba(0, 102, 204, 0.1)
+  ) !important;
+  box-shadow: 0 0 0 4px var(--s-focus-ring-alpha, rgba(0, 102, 204, 0.1)) !important;
+}
+
+/* ============================================
+   Link Variants
+   ============================================ */
+
+.link-secondary,
+a.link-secondary {
+  color: var(--s-text-secondary) !important;
+  text-decoration-color: var(--s-text-secondary) !important;
+  opacity: 0.9;
+}
+
+.link-secondary:hover,
+a.link-secondary:hover {
+  color: var(--s-text-primary) !important;
+  opacity: 1;
+}
+
+a[disabled],
+a.disabled,
+a[aria-disabled="true"] {
+  color: var(--s-text-link-disabled) !important;
+  text-decoration-color: var(--s-text-link-disabled) !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  pointer-events: none !important;
+}
+
+/* External Links - Icon Indicator */
+a.external::after {
+  content: " ↗";
+  font-size: 0.75em;
+  vertical-align: super;
+  opacity: 0.7;
+  margin-left: 0.125em;
+}
+
+/* Download Links - Optional Icon Indicator */
+a[download]::after,
+a[href$=".pdf"]::after,
+a[href$=".doc"]::after,
+a[href$=".docx"]::after,
+a[href$=".zip"]::after {
+  content: " ↓";
+  font-size: 0.75em;
+  vertical-align: super;
+  opacity: 0.7;
+  margin-left: 0.125em;
+}
+
+/* Button-styled Links */
+a.button,
+a.btn {
+  text-decoration: none !important;
+}
+
+/* ============================================
+   High Contrast Mode
+   ============================================ */
+@media (prefers-contrast: high) {
+  a {
+    text-decoration-thickness: 0.125em !important;
+    text-underline-offset: 0.1875em !important;
+  }
+  a:focus-visible {
+    outline-width: 4px !important;
+    outline-offset: 6px !important;
+  }
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  a {
+    transition: none !important;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  a {
+    text-decoration: underline !important;
+    color: #000 !important;
+  }
+  a.external::after {
+    content: " (" attr(href) ")";
+    font-size: 0.875em;
+    color: #666;
+  }
+}

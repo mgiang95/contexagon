@@ -1,0 +1,150 @@
+/* Maximum Contrast bleibt wie gehabt */
+.a11y-contrast-maximum {
+  /* Farben werden in JS überschrieben zu reinem Schwarz/Weiß */
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
+  --shadow-xl: none !important;
+  --a11y-contrast-border-width: 3px !important;
+  --focus-outline-width: 4px !important;
+}
+
+/* =================================
+   MAXIMUM CONTRAST MODE
+   ================================= */
+
+/* Light Mode + Maximum Contrast */
+.a11y-contrast-maximum {
+  /* Nur Schwarz und Weiß */
+  --p-primary-50: #000000 !important;
+  --p-primary-100: #000000 !important;
+  --p-primary-200: #000000 !important;
+  --p-primary-300: #ffffff !important;
+  --p-primary-400: #ffffff !important;
+  --p-primary-500: #ffffff !important;
+  --p-primary-600: #ffffff !important;
+  --p-primary-700: #ffffff !important;
+  --p-primary-800: #ffffff !important;
+  --p-primary-900: #ffffff !important;
+  --p-primary-950: #ffffff !important;
+
+  --p-neutral-50: #000000 !important;
+  --p-neutral-100: #000000 !important;
+  --p-neutral-200: #000000 !important;
+  --p-neutral-300: #ffffff !important;
+  --p-neutral-400: #ffffff !important;
+  --p-neutral-500: #ffffff !important;
+  --p-neutral-600: #ffffff !important;
+  --p-neutral-700: #ffffff !important;
+  --p-neutral-800: #ffffff !important;
+  --p-neutral-900: #ffffff !important;
+  --p-neutral-950: #ffffff !important;
+
+  /* Keine Schatten */
+  --shadow-sm: none !important;
+  --shadow-md: none !important;
+  --shadow-lg: none !important;
+  --shadow-xl: none !important;
+
+  /* Starke Borders */
+  --border-width: 3px !important;
+  --focus-outline-width: 4px !important;
+
+  /* Links unterstrichen */
+  --link-decoration: underline !important;
+  --link-color: #000000 !important;
+  --link-hover-color: #000000 !important;
+  --link-visited-color: #000000 !important;
+}
+
+/* Dark Mode + Maximum Contrast */
+[data-theme="dark"].a11y-contrast-maximum,
+.a11y-theme-dark.a11y-contrast-maximum {
+  /* Invertiert für Dark Mode */
+  --p-primary-50: #ffffff !important;
+  --p-primary-100: #ffffff !important;
+  --p-primary-200: #ffffff !important;
+  --p-primary-300: #000000 !important;
+  --p-primary-400: #000000 !important;
+  --p-primary-500: #000000 !important;
+  --p-primary-600: #000000 !important;
+  --p-primary-700: #000000 !important;
+  --p-primary-800: #000000 !important;
+  --p-primary-900: #000000 !important;
+  --p-primary-950: #000000 !important;
+
+  --p-neutral-50: #ffffff !important;
+  --p-neutral-100: #ffffff !important;
+  --p-neutral-200: #ffffff !important;
+  --p-neutral-300: #000000 !important;
+  --p-neutral-400: #000000 !important;
+  --p-neutral-500: #000000 !important;
+  --p-neutral-600: #000000 !important;
+  --p-neutral-700: #000000 !important;
+  --p-neutral-800: #000000 !important;
+  --p-neutral-900: #000000 !important;
+  --p-neutral-950: #000000 !important;
+
+  /* Links weiß */
+  --link-color: #ffffff !important;
+  --link-hover-color: #ffffff !important;
+  --link-visited-color: #ffffff !important;
+}
+
+/* =================================
+   CONTRAST UI ADJUSTMENTS
+   ================================= */
+
+/* Maximum Contrast - UI Elements */
+.a11y-contrast-maximum {
+  /* Alle Borders sichtbar */
+  *,
+  *::before,
+  *::after {
+    border-color: currentColor !important;
+  }
+
+  /* Buttons */
+  button,
+  .button,
+  .btn {
+    background: transparent !important;
+    color: currentColor !important;
+    border: var(--a11y-contrast-border-width) solid currentColor !important;
+    text-decoration: underline !important;
+  }
+
+  button:hover,
+  .button:hover,
+  .btn:hover {
+    background: currentColor !important;
+    color: var(--p-neutral-50) !important;
+  }
+
+  /* Links immer unterstrichen */
+  a {
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+  }
+
+  /* Bilder mit Border */
+  img {
+    border: 1px solid currentColor;
+  }
+
+  /* Keine dekorativen Elemente */
+  *::before,
+  *::after {
+    content: none !important;
+  }
+
+  /* Ausnahmen für wichtige Icons */
+  .icon::before,
+  .icon::after,
+  [class*="icon-"]::before,
+  [class*="icon-"]::after,
+  .button__icon::before,
+  .button__icon::after {
+    content: "" !important;
+  }
+}

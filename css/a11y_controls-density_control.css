@@ -1,0 +1,25 @@
+/* =================================
+   ACCESSIBILITY/DENSITY-CONTROL
+   ================================= */
+
+:root {
+  --_density-multiplier: 1;
+}
+
+.a11y-density-compact {
+  --_density-multiplier: 0.75;
+}
+
+.a11y-density-roomy {
+  --_density-multiplier: 1.25;
+}
+
+.density-scaling-active * {
+  transition: padding 0.3s ease, margin 0.3s ease, gap 0.3s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .density-scaling-active * {
+    transition: none !important;
+  }
+}

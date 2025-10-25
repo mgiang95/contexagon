@@ -1,0 +1,166 @@
+/* tokens/components/list.css */
+:root {
+  /* ===== LIST BASE PROPERTIES ===== */
+  --c-list-background-color: var(--s-icon-accent);
+
+  /* ===== LIST BASE PROPERTIES ===== */
+
+  --c-list-font-size: var(--s-font-size-body);
+  --c-list-line-height: var(--s-line-height-body);
+  --c-list-font-weight: var(--s-font-weight-semibold);
+  --c-list-padding-block: var(--p-spacing-xs);
+
+  --c-button-padding-inline: var(--p-spacing-s);
+  --c-button-radius: var(--p-radius-m);
+  --c-button-transition: all var(--p-transition-duration-fast)
+    var(--p-transition-timing);
+  --c-button-min-height: 2rem;
+  --c-button-gap: var(--p-spacing-xs);
+}
+
+/* ===== THEME STYLING ===== */
+:root[data-theme="dark"] {
+  --c-list-background-gradient: linear-gradient(
+    var(--s-glass-angle),
+    oklch(from var(--s-interactive-primary-hover) l c h / 0.05) 0%,
+    oklch(from var(--s-interactive-primary-hover) l c h / 0.1) 100%
+  );
+  --primary-background-gradient-text: var(--primary);
+}
+
+:root[data-theme="light"] {
+  --c-list-background-gradient: linear-gradient(
+    var(--s-glass-angle),
+    oklch(from var(--s-interactive-primary-hover) l c h / 0.05) 0%,
+    oklch(from var(--s-interactive-primary-hover) l c h / 0.1) 100%
+  );
+  --primary-background-gradient-text: var(--magenta);
+}
+
+/* ------ Checklist ------ */
+/* Font-size über Klasse gesteuert */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list__item {
+  position: relative;
+  margin-left: 0; /* control indent with em */
+  margin-bottom: 0.5em;
+  padding-left: 1.5em;
+}
+
+.list__item:last-child {
+  margin-bottom: 0;
+}
+
+.list--check .list__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 1em;
+  height: 1em;
+  background-color: var(--c-list-background-color);
+
+  /* SVG als Mask */
+  mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 -0.000244141C12.4182 -0.000244141 15.9999 3.58159 16 7.99976C16 12.418 12.4183 15.9998 8 15.9998C3.58172 15.9998 0 12.418 0 7.99976C0.00013194 3.58159 3.5818 -0.000244141 8 -0.000244141ZM6.48145 9.2478L4.8584 7.61987L3.5 8.97925L6.48145 11.9597L12.582 5.85815L11.2236 4.49976L6.48145 9.2478Z' fill='black'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 -0.000244141C12.4182 -0.000244141 15.9999 3.58159 16 7.99976C16 12.418 12.4183 15.9998 8 15.9998C3.58172 15.9998 0 12.418 0 7.99976C0.00013194 3.58159 3.5818 -0.000244141 8 -0.000244141ZM6.48145 9.2478L4.8584 7.61987L3.5 8.97925L6.48145 11.9597L12.582 5.85815L11.2236 4.49976L6.48145 9.2478Z' fill='black'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+}
+
+.list--chevron .list__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3em;
+  width: 1em;
+  height: 1em;
+  background-color: var(--c-list-background-color);
+
+  /* SVG als Mask */
+  mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.38867 11.667L11.0557 8L7.38867 4.33301L8.61133 3.11133L13.5 8L8.61133 12.8887L7.38867 11.667ZM2.49805 11.667L6.16602 8L2.49805 4.33301L3.7207 3.11133L8.60938 8L3.7207 12.8887L2.49805 11.667Z' fill='black'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.38867 11.667L11.0557 8L7.38867 4.33301L8.61133 3.11133L13.5 8L8.61133 12.8887L7.38867 11.667ZM2.49805 11.667L6.16602 8L2.49805 4.33301L3.7207 3.11133L8.60938 8L3.7207 12.8887L2.49805 11.667Z' fill='black'/%3E%3C/svg%3E")
+    no-repeat center / contain;
+}
+
+/* ------ Project list ------ */
+
+.list-project {
+  border-radius: var(--s-card-radius, 12px);
+  overflow: hidden;
+}
+
+.list-item-project {
+  padding: var(--p-spacing-s);
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid rgb(from var(--divider-color) r g b / 0.5);
+  position: relative;
+  transition: color 0.6s ease-in-out, background 0.15s ease-in-out;
+
+  backdrop-filter: blur(var(--p-blur-l));
+  -webkit-backdrop-filter: blur(var(--p-blur-l));
+}
+
+.list-item-project::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--c-list-background-gradient);
+  transition: opacity 0.3s ease-in-out;
+  z-index: 0;
+  opacity: 0;
+}
+
+.list-item-project:hover::before {
+  opacity: 1;
+}
+
+.list-item-project:hover {
+  background: none; /* Background removed as the ::before pseudo-element handles it */
+}
+
+.list-item-project .gb-container h6 a {
+  transition: color 0.3s ease-in-out; /* Transition für Hover-Effekt */
+}
+
+.list-item-project:hover .gb-container h6 a {
+  color: var(--c-list-background-gradient) !important;
+}
+
+.list-item-project:hover .duotone-icon svg {
+  color: var(--highlight-duotone-icon);
+}
+
+.list-item-project:last-of-type {
+  border-bottom: none;
+}
+
+/* ------ Static items ------ */
+
+/* Entfernt alle Hover-Effekte von statischen Items */
+
+.list-item-project-static::before {
+  background: none !important; /* Entfernt das Pseudo-Hintergrund */
+  opacity: 0 !important; /* Sicherstellen, dass es nicht sichtbar ist */
+}
+
+.list-item-project-static:hover {
+  background: none !important; /* Entfernt Hover-Hintergrund */
+}
+
+.list-item-project-static .gb-container h6 a,
+.list-item-project-static:hover .gb-container h6 a {
+  color: inherit !important; /* Beibehaltung der Standardfarbe */
+}
+
+.list-item-project-static .duotone-icon svg {
+  color: inherit !important; /* Keine Hover-Farbe */
+}

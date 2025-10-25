@@ -1,0 +1,33 @@
+/* =================================
+   ACCESSIBILITY/FONT-SIZE
+   ================================= */
+
+/* Font-Size Controls mit !important */
+/* No transition for scaling -> performance */
+.a11y-font-size-large {
+  --_font-scale-multiplier: 1.25;
+}
+
+.a11y-font-size-xlarge {
+  --_font-scale-multiplier: 1.5;
+}
+
+.font-scaling-active * {
+  transition: font-size 0.3s ease !important;
+}
+.font-scaling-active h1,
+.font-scaling-active h2,
+.font-scaling-active h3,
+.font-scaling-active h4,
+.font-scaling-active h5,
+.font-scaling-active h6,
+.font-scaling-active p,
+.font-scaling-active .display {
+  transition: font-size 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: font-size;
+}
+
+/* Bessere Performance mit transform statt font-size */
+.font-scaling-active * {
+  transition: transform 0.3s ease !important;
+}

@@ -1,0 +1,62 @@
+.subpage-bg-img {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  clip-path: polygon(0 0, 100% 0%, 100% 25%, 0 45%);
+  -webkit-transition: filter 0.6s ease-in-out, opacity 0.6s ease-in-out,
+    background-color 0.6s ease-in-out;
+  transition: filter 0.6s ease-in-out, opacity 0.6s ease-in-out,
+    background-color 0.6s ease-in-out;
+}
+
+.blurred-darkened {
+  filter: blur(5px); /* Adjust the blur level as needed */
+  opacity: 0.5;
+}
+
+.subpage-pattern-bg::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: -400px;
+  width: 200%; /* Breiter für Rotation */
+  height: 110%;
+  background: var(--pattern-tile) repeat; /* Pattern */
+  transform: rotate(-6deg); /* Drehen des Patterns */
+  opacity: 0.3; /* Less than regular pattern 0.4 */
+  pointer-events: none; /* Keine Blockade von Interaktionen */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-size: 100% 100%;
+  z-index: 1; /* Sicherstellen, dass es hinter den Inhalten liegt */
+}
+
+/* Tablet devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .subpage-bg-img {
+    clip-path: polygon(0 0, 100% 0%, 100% 25%, 0 40%);
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+  .subpage-bg-img {
+    clip-path: polygon(0 0, 100% 0%, 100% 20%, 0 30%);
+  }
+}

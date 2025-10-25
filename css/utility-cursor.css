@@ -1,0 +1,14 @@
+/*------------ Cursor FX ------------*/
+.cursor-circle {
+  position: fixed;
+  width: 800px; /* Durchmesser des Kreises */
+  height: 800px;
+  background-color: var(--p-accent-500);
+  opacity: 0.08;
+  border-radius: 50%;
+  pointer-events: none; /* block interaction */
+  filter: blur(400px);
+  transform: translate(-50%, -50%); /* Center circle around cursor */
+  transition: transform 0.15s ease-out;
+  z-index: 1;
+}

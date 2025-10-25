@@ -1,0 +1,118 @@
+.card-carousell {
+  max-width: 100%;
+  margin: 2rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card-carousell.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-caroussell-content {
+  position: relative;
+  width: 100%;
+  height: 60vw;
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-carousell-section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: var(--p-radius-l);
+  transition: opacity 1s ease;
+}
+
+.card-carousell-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--p-radius-l);
+}
+
+.card-carousell-section.active {
+  opacity: 1;
+}
+
+.card-carousell-indicator {
+  position: absolute;
+  left: 50%;
+  top: 95%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  z-index: 2; /* Sicherstellen, dass sie über den Bildern liegen */
+  opacity: 1; /* Immer sichtbar */
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+.card-carousell-indicator-dot {
+  position: relative;
+  width: 36px;
+  height: 6px;
+  border-radius: 0;
+  background-color: var(--p-neutral-100);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0.66;
+  transition: background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.card-carousell-indicator-dot.active {
+  background-color: var(--p-accent-50);
+  opacity: 1;
+}
+
+.card-carousell-indicator-dot::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%; /* Anfangsbreite */
+  background-color: var(--p-accent-500);
+  transition: width 0s linear; /* Standard deaktiviert */
+}
+
+.card-carousell-indicator-dot.active::before {
+  width: 36px; /* Balken wächst */
+  transition: width 5s linear; /* Balkenwachstum synchronisiert mit Bildwechsel */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: var(--p-neutral-50);
+  text-align: center;
+  padding: 1rem 1.5rem 2.5rem 1.5rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/*------------------------ Responsive Design ------------------------*/
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card-carousell {
+    margin: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .card-carousell {
+    margin: 1rem;
+  }
+}

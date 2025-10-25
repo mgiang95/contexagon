@@ -1,0 +1,35 @@
+:root {
+  --icon-primary: var(--p-accent-500);
+}
+
+.duotone-icon.icon-size-lg .gb-icon svg {
+  width: clamp(6rem, 4.9091rem + 5.4545vw, 9rem); /* 96px -> 144px */
+  height: clamp(6rem, 4.9091rem + 5.4545vw, 9rem);
+}
+
+.duotone-icon svg {
+  color: currentColor;
+  fill: var(--p-accent-500);
+}
+
+.duotone-icon--primary {
+  color: var(--p-accent-500);
+}
+
+.duotone-icon--interactive {
+  color: currentcolor;
+  margin-bottom: 0 !important;
+}
+
+.duotone-icon--interactive svg {
+  color: currentColor;
+  fill: var(--p-accent-500);
+  width: 72px;
+  height: 72px;
+}
+
+*:has(> .duotone-icon--interactive):hover svg path {
+  color: oklch(from var(--p-accent-500) l c h / 0.5);
+  transition: color var(--p-transition-duration-fast) var(--p-transition-timing),
+    fill var(--p-transition-duration-fast) var(--p-transition-timing);
+}

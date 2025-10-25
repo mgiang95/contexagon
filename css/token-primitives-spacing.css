@@ -1,0 +1,52 @@
+/* =================================
+   PRIMITIVES / SPACING TOKENS
+   Responsive Spacing System
+   ================================= */
+/* Base Spacing Scale with Density Integration */
+:root {
+  --p-spacing-3xs: clamp(
+    calc(0.25rem * var(--_density-multiplier)),
+    calc((0.2045rem + 0.2273cqi) * var(--_density-multiplier)),
+    calc(0.375rem * var(--_density-multiplier))
+  );
+  --p-spacing-2xs: clamp(
+    calc(0.5rem * var(--_density-multiplier)),
+    calc((0.4091rem + 0.4545cqi) * var(--_density-multiplier)),
+    calc(0.75rem * var(--_density-multiplier))
+  );
+  --p-spacing-xs: clamp(
+    calc(0.75rem * var(--_density-multiplier)),
+    calc((0.6136rem + 0.6818cqi) * var(--_density-multiplier)),
+    calc(1.125rem * var(--_density-multiplier))
+  );
+  --p-spacing-s: clamp(
+    calc(1rem * var(--_density-multiplier)),
+    calc((0.8182rem + 0.9091cqi) * var(--_density-multiplier)),
+    calc(1.5rem * var(--_density-multiplier))
+  );
+  --p-spacing-m: clamp(
+    calc(1.5rem * var(--_density-multiplier)),
+    calc((1.2273rem + 1.3636cqi) * var(--_density-multiplier)),
+    calc(2.25rem * var(--_density-multiplier))
+  );
+  --p-spacing-l: clamp(
+    calc(2rem * var(--_density-multiplier)),
+    calc((1.6364rem + 1.8182cqi) * var(--_density-multiplier)),
+    calc(3rem * var(--_density-multiplier))
+  );
+  --p-spacing-xl: clamp(
+    calc(3rem * var(--_density-multiplier)),
+    calc((2.4545rem + 2.7273cqi) * var(--_density-multiplier)),
+    calc(4.5rem * var(--_density-multiplier))
+  );
+  --p-spacing-2xl: clamp(
+    calc(4rem * var(--_density-multiplier)),
+    calc((3.2727rem + 3.6364cqi) * var(--_density-multiplier)),
+    calc(6rem * var(--_density-multiplier))
+  );
+  --p-spacing-3xl: clamp(
+    calc(6rem * var(--_density-multiplier)),
+    calc((4.9091rem + 5.4545cqi) * var(--_density-multiplier)),
+    calc(9rem * var(--_density-multiplier))
+  );
+}

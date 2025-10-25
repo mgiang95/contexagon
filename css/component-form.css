@@ -1,0 +1,104 @@
+:root {
+  --input-border-color: color-mix(in srgb, var(--text-color) 33%, transparent);
+  --input-border-color-hover: color-mix(
+    in srgb,
+    var(--text-color) 66%,
+    transparent
+  );
+  --input-border-color-focus: var(--text-color);
+  --input-border-width: 1.5px solid;
+}
+/*
+input,
+textarea {
+	border: var(--input-border-width) var(--input-border-color) !important;
+    border-radius: var(--control-radius) !important;
+    color: var(--text-color) !important;
+    font-size: var(--font-size-p) !important;
+    line-height: var(--line-height-p) !important;
+    font-weight: 400 !important;
+    font-family: "Roboto",  Arial, sans-serif !important;
+    padding: 0.75rem 0.5rem !important;
+	margin-top: 0.5rem !important;
+	transition: border var(--transition-duration-fast) !important;
+}
+*/
+
+/*
+input:hover, textarea:hover {
+    border: var(--input-border-width) var(--input-border-color-hover) !important;
+}
+
+input:active,
+input:focus, 
+textarea:active,
+textarea:focus {
+	background-color: transparent !important;
+    border: var(--input-border-width) var(--input-border-color-focus) !important;
+}
+*/
+.ff-field_container,
+.ff-el-group {
+  margin-bottom: 2rem !important;
+}
+
+.ff-t-cell .ff-el-group {
+  margin-bottom: 0 !important;
+}
+
+#ff_1_email {
+  margin-bottom: 3rem !important;
+}
+
+.ff-message-success {
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: none !important;
+  padding: none !important;
+}
+
+@media (min-width: 768px) {
+  .frm-fluent-form .ff-t-container {
+    display: flex;
+    gap: 32px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #ff_3_names_first_name_ {
+    margin-bottom: 2rem !important;
+  }
+}
+
+.ff-btn {
+  /* Private Variables */
+  --_border: none;
+  --_shadow: var(--control-shadow);
+
+  /* General Styling */
+  padding: var(--control-padding-block) var(--control-padding-inline);
+  border-radius: var(--control-radius);
+  font-size: var(--control-font-size);
+  line-height: var(--control-line-height);
+  font-weight: 600 !important;
+
+  transition: all var(--transition-duration-fast) var(--transition-timing);
+  -webkit-transition: all var(--transition-duration-fast)
+    var(--transition-timing);
+
+  /* Accessible Properties for Styling */
+  background-color: var(--primary) !important;
+  color: var(--text-on-primary) !important;
+  border: var(--_border) !important;
+  box-shadow: var(--_shadow) !important;
+
+  &:hover {
+    background-color: color-mix(in oklch, var(--primary), black 5%) !important;
+    color: var(--text-on-primary) !important;
+  }
+  &:active,
+  &:focus {
+    background-color: color-mix(in oklch, var(--primary), black 10%) !important;
+    color: var(--text-on-primary) !important;
+  }
+}

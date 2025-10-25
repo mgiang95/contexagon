@@ -1,0 +1,323 @@
+/* ============================================
+   tokens/components/card.css
+   Card component with multiple variants
+   ============================================ */
+
+:root {
+  /* ===== BASE CARD PROPERTIES (shared by all variants) ===== */
+  --c-card-radius: var(--p-radius-l);
+  --c-card-padding: var(--p-spacing-m);
+  --c-card-transition: var(--p-transition-duration-fast)
+    var(--p-transition-timing);
+
+  /* ===== CARD VARIANT: GLASS (Standard) ===== */
+  --c-card-glass-bg: var(--s-glass-m-bg);
+  --c-card-glass-border: var(--s-glass-border-width) solid transparent;
+  --c-card-glass-border-image: var(--s-glass-border-image);
+  --c-card-glass-shadow: var(--s-glass-shadow);
+  --c-card-glass-blur: var(--s-glass-blur);
+  --c-card-glass-text: var(--s-text-on-glass);
+
+  /* ===== CARD VARIANT: AURORA (Enhanced Glass) ===== */
+  --c-card-aurora-bg: radial-gradient(
+    circle at 50% 250%,
+    var(--s-glass-m-bg-start),
+    color-mix(
+      in oklch,
+      var(--s-glass-m-bg-end) 90%,
+      var(--s-interactive-primary) 10%
+    )
+  );
+  --c-card-aurora-bg-hover: radial-gradient(
+    circle at 50% 250%,
+    var(--s-glass-m-bg-start-hover),
+    var(--s-glass-m-bg-end-hover)
+  );
+  --c-card-aurora-border: var(--p-border-width-m) solid transparent;
+  --c-card-aurora-border-hover: var(--p-border-width-l) solid transparent;
+  --c-card-aurora-shadow: var(--s-glass-shadow);
+  --c-card-aurora-shadow-hover: var(--s-glass-shadow-hover);
+  --c-card-aurora-blur: var(--s-glass-blur);
+  --c-card-aurora-text: var(--s-text-on-glass);
+
+  /* Aurora Animation Settings */
+  --c-card-aurora-glow-angle: 360deg; /* Breite des sichtbaren Lichtscheins */
+  --c-card-aurora-glow-fade: 120deg; /* Wie weich der Schein ausblendet */
+  --c-card-aurora-rotation-to: 360deg; /* Volle Rotation */
+  --c-card-aurora-rotate-duration: 6000ms; /* Rotationsgeschwindigkeit */
+  --c-card-aurora-rotate-easing: linear; /* Art der Bewegung */
+  --c-card-aurora-pulse-duration: 5000ms; /* Puls-Effekt fÃ¼r SÃ¤ttigung/Helligkeit */
+  --c-card-aurora-opacity-pulse-duration: 3000ms; /* Puls-Effekt fÃ¼r Sichtbarkeit */
+
+  /* ===== CARD VARIANT: SOLID (Non-glass) ===== */
+  --c-card-solid-bg: var(--s-surface-elevated);
+  --c-card-solid-border: var(--s-glass-border-width) solid
+    var(--s-border-default);
+  --c-card-solid-shadow: var(--s-shadow-default);
+  --c-card-solid-text: var(--s-text-primary);
+}
+
+/* ============================================
+   Animation Properties
+   ============================================ */
+
+/* @property macht CSS-Variablen animierbar */
+@property --rotation-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Keyframes fÃ¼r Rotation & Puls-Effekte */
+@keyframes rotateAngle {
+  0% {
+    --rotation-angle: 0deg;
+  }
+  100% {
+    --rotation-angle: var(--c-card-aurora-rotation-to);
+  }
+}
+
+@keyframes pulseOpacity {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulseBorder {
+  0% {
+    filter: saturate(0.5) brightness(0.98);
+  }
+  50% {
+    filter: saturate(2) brightness(1.5);
+  }
+  100% {
+    filter: saturate(0.5) brightness(0.98);
+  }
+}
+
+/* ============================================
+   Base Card Component
+   ============================================ */
+
+.card {
+  position: relative;
+  border-radius: var(--c-card-radius);
+  padding: var(--c-card-padding);
+  container-type: inline-size;
+  container-name: card;
+  transition: transform var(--c-card-transition),
+    box-shadow var(--c-card-transition);
+}
+
+/* ============================================
+   Card Variants
+   ============================================ */
+
+/* Standard Glass Card */
+.card_glass {
+  background: var(--c-card-glass-bg);
+  backdrop-filter: blur(var(--c-card-glass-blur));
+  -webkit-backdrop-filter: blur(var(--c-card-glass-blur));
+
+  box-shadow: var(--c-card-glass-shadow);
+  color: var(--c-card-glass-text);
+}
+
+/* Gradient Border Ã¼ber Pseudo-Element */
+.card_glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--s-glass-border-width);
+  background: var(--c-card-glass-border-image);
+  mask: linear-gradient(black, black) content-box, linear-gradient(black, black);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(black, black) content-box,
+    linear-gradient(black, black);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  transition: background var(--c-card-transition);
+}
+
+/* Aurora Card (Enhanced Glass with Animated Border) */
+.card_aurora {
+  background: var(--c-card-aurora-bg) padding-box;
+  backdrop-filter: blur(var(--c-card-aurora-blur));
+  -webkit-backdrop-filter: blur(var(--c-card-aurora-blur));
+  box-shadow: var(--c-card-aurora-shadow);
+  color: var(--c-card-aurora-text);
+  overflow: visible;
+}
+
+/* Aurora Animated Border */
+/* Vereinfachte Version mit nur einem Lichtspot */
+.card_aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: var(--c-card-aurora-border);
+
+  /* Single spot mit smooth loop */
+  background: conic-gradient(
+      from var(--rotation-angle) at 50% 50%,
+
+      /* Smooth fade-in vom Ende */ /* Main glow */ var(--s-glass-border-start)
+        0deg,
+      var(--s-glass-border-end) 250deg,
+      /* Smooth fade back to start */ var(--s-glass-border-start) 310deg
+    )
+    border-box;
+
+  mask: linear-gradient(black, black) padding-box,
+    linear-gradient(black, black) border-box;
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(black, black) padding-box,
+    linear-gradient(black, black) border-box;
+  -webkit-mask-composite: xor;
+
+  z-index: 0;
+  --rotation-angle: 0deg;
+  will-change: background, opacity, filter, --rotation-angle;
+  transition: background var(--p-transition-duration-slow)
+      var(--p-transition-timing),
+    opacity var(--p-transition-duration-fast) var(--p-transition-timing);
+}
+/* Aurora Background Highlight */
+.card_aurora::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--c-card-aurora-bg-hover) padding-box;
+  opacity: 0;
+  transition: opacity var(--p-transition-duration-slow)
+    var(--p-transition-timing);
+  z-index: -1;
+}
+
+/* Solid Card (Non-glass Alternative) */
+.card_solid {
+  background: var(--c-card-solid-bg);
+  border: var(--c-card-solid-border);
+  box-shadow: var(--c-card-solid-shadow);
+  color: var(--c-card-solid-text);
+}
+
+/* ============================================
+   Card Modifiers
+   ============================================ */
+
+/* Interactive Behavior */
+.card--interactive {
+  cursor: pointer;
+}
+
+.card--interactive:hover {
+  transform: translateY(-2px);
+}
+
+/* Glass Interactive States */
+.card_glass.card--interactive:hover {
+  box-shadow: var(--s-glass-shadow-hover);
+  border-color: var(--s-glass-border-start-hover);
+}
+
+/* Aurora Interactive States */
+.card_aurora.card--interactive:hover {
+  box-shadow: var(--c-card-aurora-shadow-hover);
+}
+
+.card_aurora.card--interactive:hover::before {
+  border: var(--c-card-aurora-border-hover);
+  /* Single spot mit smooth loop */
+  background: conic-gradient(
+      from var(--rotation-angle) at 50% 50%,
+
+      /* Smooth fade-in vom Ende */ /* Main glow */
+        var(--s-glass-border-start-hover) 0deg,
+      var(--s-glass-border-end-hover) 250deg,
+      /* Smooth fade back to start */ var(--s-glass-border-start-hover) 310deg
+    )
+    border-box;
+  animation: rotateAngle var(--c-card-aurora-rotate-duration)
+      var(--c-card-aurora-rotate-easing) infinite,
+    pulseBorder var(--c-card-aurora-pulse-duration) ease-in-out infinite,
+    pulseOpacity var(--c-card-aurora-opacity-pulse-duration) ease-in-out
+      infinite;
+}
+
+.card_aurora.card--interactive:hover::after {
+  opacity: 0.3;
+}
+
+/* Solid Interactive States */
+.card_solid.card_interactive:hover {
+  box-shadow: var(--s-shadow-emphasis);
+  border-color: var(--s-border-interactive-hover);
+}
+
+/* Size Modifiers */
+.card--compact {
+  padding: var(--p-spacing-s);
+}
+
+.card--spacious {
+  padding: var(--p-spacing-l);
+}
+
+/* State Modifiers */
+.card--highlighted {
+  border-color: var(--s-interactive-primary) !important;
+  border-width: 2px;
+}
+
+.card--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(0.3);
+}
+
+/* Focus States for Accessibility */
+.card--interactive:focus-visible {
+  outline: 3px solid var(--s-focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--s-focus-ring-alpha);
+}
+
+/* Content Inside Cards */
+.card > *:first-child {
+  margin-top: 0;
+}
+
+.card > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Card Headline Responsive Typography */
+.card h2,
+.card h3,
+.card .card__title {
+  container-type: inline-size;
+  container-name: card-headline;
+}
+
+/* ============================================
+   Reduced Motion Support
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .card_aurora::before {
+    animation: none !important;
+  }
+
+  .card {
+    transition-duration: 0.01ms !important;
+  }
+}

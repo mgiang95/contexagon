@@ -1,0 +1,312 @@
+/* Focus */
+*:focus {
+  outline: var(--s-focus-ring-width) solid var(--s-focus-ring);
+  outline-offset: var(--s-focus-ring-offset);
+}
+
+/* Focus Keyboard navigation */
+*:focus-visible {
+  outline: 1.5px solid var(--s-focus-ring);
+  outline-offset: var(--s-focus-ring-offset);
+}
+
+/* tokens/semantics/foundations.css */
+:root {
+  /* ===== INTERACTIVE STATES ===== */
+  /* Primary Interactive (Brand/Accent) */
+  --s-interactive-primary: var(--p-accent-300);
+  --s-interactive-primary-hover: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    black 8%
+  );
+  --s-interactive-primary-active: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    black 12%
+  );
+  --s-interactive-primary-disabled: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    transparent 60%
+  );
+  --s-interactive-primary-focus: var(--s-interactive-primary);
+
+  /* Secondary Interactive (Subtle) */
+  --s-interactive-secondary: var(--p-neutral-50);
+  --s-interactive-secondary-hover: color-mix(
+    in oklch,
+    var(--s-interactive-secondary),
+    transparent 12%
+  );
+  --s-interactive-secondary-active: color-mix(
+    in oklch,
+    var(--s-interactive-secondary),
+    transparent 16%
+  );
+  --s-interactive-secondary-disabled: transparent;
+  --s-interactive-secondary-focus: var(--s-interactive-secondary-hover);
+
+  /* Tertiary Interactive (Ghost/Minimal) */
+  --s-interactive-tertiary: transparent;
+  --s-interactive-tertiary-hover: var(--p-neutral-100);
+  --s-interactive-tertiary-active: var(--p-neutral-200);
+  --s-interactive-tertiary-disabled: transparent;
+  --s-interactive-tertiary-focus: var(--s-interactive-tertiary-hover);
+
+  /* Destructive Interactive (Danger/Error) */
+  --s-interactive-destructive: var(--p-accent-500);
+  --s-interactive-destructive-hover: color-mix(
+    in oklch,
+    var(--s-interactive-destructive),
+    black 5%
+  );
+  --s-interactive-destructive-active: color-mix(
+    in oklch,
+    var(--s-interactive-destructive),
+    black 10%
+  );
+  --s-interactive-destructive-disabled: color-mix(
+    in oklch,
+    var(--s-interactive-destructive),
+    transparent 60%
+  );
+  --s-interactive-destructive-focus: var(--s-interactive-destructive);
+
+  /* Success Interactive */
+  --s-interactive-success: var(--p-success-500);
+  --s-interactive-success-hover: color-mix(
+    in oklch,
+    var(--s-interactive-success),
+    black 5%
+  );
+  --s-interactive-success-active: color-mix(
+    in oklch,
+    var(--s-interactive-success),
+    black 10%
+  );
+  --s-interactive-success-disabled: color-mix(
+    in oklch,
+    var(--s-interactive-success),
+    transparent 60%
+  );
+  --s-interactive-success-focus: var(--s-interactive-success);
+
+  /* Warning Interactive */
+  --s-interactive-warning: var(--p-warning-500);
+  --s-interactive-warning-hover: color-mix(
+    in oklch,
+    var(--s-interactive-warning),
+    black 5%
+  );
+  --s-interactive-warning-active: color-mix(
+    in oklch,
+    var(--s-interactive-warning),
+    black 10%
+  );
+  --s-interactive-warning-disabled: color-mix(
+    in oklch,
+    var(--s-interactive-warning),
+    transparent 60%
+  );
+  --s-interactive-warning-focus: var(--s-interactive-warning);
+
+  /* ===== SURFACES & BACKGROUNDS ===== */
+  /* Base Surfaces */
+  --s-surface-neutral-default: var(--p-neutral-50); /* Haupthintergrund */
+  --s-surface-neutral-subtle: var(--p-neutral-100); /* Leicht erhöht */
+  --s-surface-neutral-elevated: var(--p-neutral-200); /* Deutlich erhöht */
+  --s-surface-neutral-overlay: var(--p-neutral-200); /* Modals, Dropdowns */
+  --s-surface-neutral-inverse: var(--p-neutral-900); /* Dunkle Bereiche */
+
+  /* Special Canvas Types */
+  --s-surface-neutral-backdrop: var(--p-neutral-900); /* Modal-Backdrop */
+
+  /* Brand Surfaces */
+  --s-surface-primary-default: var(--p-primary-50); /* Haupthintergrund */
+  --s-surface-primary-subtle: var(--p-primary-100); /* Leicht erhöht */
+  --s-surface-primary-elevated: var(--p-primary-200); /* Deutlich erhöht */
+  --s-surface-primary-overlay: var(--p-primary-900); /* Modals, Dropdowns */
+  --s-surface-primary-inverse: var(--p-primary-950); /* Dunkle Bereiche */
+
+  /* Interactive Surfaces */
+  --s-surface-interactive: var(--p-neutral-300);
+  --s-surface-interactive-hover: var(--p-neutral-400);
+  --s-surface-interactive-active: var(--p-neutral-500);
+  --s-surface-interactive-disabled: var(--p-neutral-50);
+
+  /* Status Surfaces */
+  --s-surface-success: var(--p-success-50);
+  --s-surface-success-emphasis: var(--p-success-100);
+  --s-surface-warning: var(--p-warning-50);
+  --s-surface-warning-emphasis: var(--p-warning-100);
+  --s-surface-error: var(--p-error-50);
+  --s-surface-error-emphasis: var(--p-error-100);
+  --s-surface-info: var(--p-info-50);
+  --s-surface-info-emphasis: var(--p-info-100);
+
+  /* ===== BORDERS & SEPARATORS ===== */
+  /* Structural Borders */
+  --s-border-neutral-subtle: var(--p-neutral-200); /* Kaum sichtbar */
+  --s-border-neutral-default: var(--p-neutral-300); /* Standard Trennung */
+  --s-border-neutral-emphasis: var(--p-neutral-400); /* Deutliche Trennung */
+  --s-border-neutral-strong: var(--p-neutral-600); /* Starke Betonung */
+
+  --s-border-primary-subtle: var(--p-primary-200); /* Kaum sichtbar */
+  --s-border-primary-default: var(--p-primary-300); /* Standard Trennung */
+  --s-border-primary-emphasis: var(--p-primary-400); /* Deutliche Trennung */
+  --s-border-primary-strong: var(--p-primary-600); /* Starke Betonung */
+
+  /* Interactive Borders */
+  --s-border-interactive: var(--p-accent-300);
+  --s-border-interactive-hover: var(--p-accent-400);
+  --s-border-interactive-focus: var(--p-accent-500);
+  --s-border-interactive-active: var(--p-accent-600);
+  --s-border-interactive-disabled: var(--p-neutral-200);
+
+  /* Status Borders */
+  --s-border-success: var(--p-success-400);
+  --s-border-warning: var(--p-warning-400);
+  --s-border-error: var(--p-error-400);
+  --s-border-info: var(--p-info-400);
+
+  /* Special Borders */
+  --s-border-inverse: var(--p-neutral-700);
+
+  /* ===== ICONS & GRAPHICS ===== */
+  /* Icon Hierarchy */
+  --s-icon-primary: var(--p-neutral-700); /* Standard Icons */
+  --s-icon-secondary: var(--p-neutral-500); /* Sekundäre Icons */
+  --s-icon-tertiary: var(--p-neutral-400); /* Decorative Icons */
+  --s-icon-disabled: var(--p-neutral-300); /* Deaktivierte Icons */
+
+  /* Interactive Icons */
+  --s-icon-interactive: var(--p-primary-600); /* Klickbare Icons */
+  --s-icon-interactive-hover: var(--p-primary-700);
+  --s-icon-interactive-active: var(--p-primary-800);
+  --s-icon-interactive-disabled: var(--p-neutral-300);
+
+  /* Brand Icons */
+  --s-icon-brand: var(--p-primary-500);
+  --s-icon-accent: var(--p-accent-500);
+
+  /* Status Icons */
+  --s-icon-success: var(--p-success-600);
+  --s-icon-warning: var(--p-warning-600);
+  --s-icon-error: var(--p-error-600);
+  --s-icon-info: var(--p-info-600);
+
+  /* Icons on Surfaces */
+  --s-icon-on-primary: var(--p-neutral-50);
+  --s-icon-on-surface: var(--p-neutral-700);
+  --s-icon-on-glass: var(--p-neutral-600);
+  --s-icon-on-overlay: var(--p-neutral-200);
+
+  /* ===== SHADOWS & EFFECTS ===== */
+  /* Elevation Shadows */
+  --s-shadow-none: none;
+  --s-shadow-subtle: var(--p-shadow-xs); /* Kaum sichtbar */
+  --s-shadow-default: var(--p-shadow-s); /* Standard Erhöhung */
+  --s-shadow-emphasis: var(--p-shadow-m); /* Deutliche Erhöhung */
+  --s-shadow-strong: var(--p-shadow-l); /* Starke Erhöhung */
+  --s-shadow-dramatic: var(--p-shadow-xl); /* Dramatische Erhöhung */
+
+  /* Interactive Shadows */
+  --s-shadow-interactive: var(--p-shadow-s);
+  --s-shadow-interactive-hover: var(--p-shadow-m);
+  --s-shadow-interactive-active: var(--p-shadow-xs);
+  --s-shadow-interactive-focus: 0 0 0 3px var(--s-interactive-primary-focus);
+
+  /* Special Shadows */
+  --s-shadow-overlay: var(--p-shadow-2xl);
+  --s-shadow-inner: var(--p-shadow-inner);
+
+  /* ===== FOCUS & ACCESSIBILITY ===== */
+  /* Focus Ring System */
+  --s-focus-ring: var(--p-accent-500);
+  --s-focus-ring-width: 1.5px;
+  --s-focus-ring-offset: 4px;
+  --s-focus-ring-alpha: color-mix(
+    in oklch,
+    var(--s-focus-ring),
+    transparent 75%
+  );
+
+  /* Focus Variants */
+  --s-focus-ring-destructive: var(--p-accent-500);
+  --s-focus-ring-success: var(--p-success-500);
+  --s-focus-ring-warning: var(--p-warning-500);
+  --s-focus-ring-inverse: var(--p-neutral-300);
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+:root[data-theme="dark"] {
+  /* ===== INTERACTIVE STATES ===== */
+  /* Primary Interactive (Brand/Accent) */
+  --s-interactive-primary: var(--p-accent-500);
+  --s-interactive-primary-hover: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    black 8%
+  );
+  --s-interactive-primary-active: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    black 12%
+  );
+  --s-interactive-primary-disabled: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    transparent 60%
+  );
+  --s-interactive-primary-focus: var(--s-interactive-primary);
+
+  --s-interactive-secondary: var(--p-primary-50);
+  --s-interactive-secondary-hover: color-mix(
+    in oklch,
+    var(--s-interactive-secondary),
+    transparent 12%
+  );
+  --s-interactive-secondary-active: color-mix(
+    in oklch,
+    var(--s-interactive-secondary),
+    transparent 16%
+  );
+
+  /* ===== SURFACES & BACKGROUNDS ===== */
+  /* Base Surfaces */
+  --s-surface-neutral-default: var(--p-neutral-950); /* Haupthintergrund */
+  --s-surface-neutral-subtle: var(--p-neutral-800); /* Leicht erhöht */
+  --s-surface-neutral-elevated: var(--p-neutral-900); /* Deutlich erhöht */
+  --s-surface-neutral-overlay: var(--p-neutral-700); /* Modals, Dropdowns */
+  --s-surface-neutral-inverse: var(--p-neutral-100); /* Dunkle Bereiche */
+
+  /* Special Canvas Types */
+  --s-surface-neutral-backdrop: var(--p-neutral-900); /* Modal-Backdrop */
+
+  /* Brand Surfaces */
+  --s-surface-primary-default: var(--p-primary-950); /* Haupthintergrund */
+  --s-surface-primary-subtle: var(--p-primary-900); /* Leicht erhöht */
+  --s-surface-primary-elevated: var(--p-primary-800); /* Deutlich erhöht */
+  --s-surface-primary-overlay: var(--p-primary-900); /* Modals, Dropdowns */
+  --s-surface-primary-inverse: var(--p-primary-900); /* Dunkle Bereiche */
+
+  /* Structural Borders */
+  --s-border-neutral-subtle: var(--p-neutral-700); /* Kaum sichtbar */
+  --s-border-neutral-default: var(--p-neutral-300); /* Standard Trennung */
+  --s-border-neutral-emphasis: var(--p-neutral-400); /* Deutliche Trennung */
+  --s-border-neutral-strong: var(--p-neutral-600); /* Starke Betonung */
+
+  --s-border-primary-subtle: var(--p-primary-200); /* Kaum sichtbar */
+  --s-border-primary-default: var(--p-primary-300); /* Standard Trennung */
+  --s-border-primary-emphasis: var(--p-primary-400); /* Deutliche Trennung */
+  --s-border-primary-strong: var(--p-primary-600); /* Starke Betonung */
+
+  /* Icon adjustments */
+  --s-icon-primary: var(--p-neutral-300);
+  --s-icon-secondary: var(--p-neutral-500);
+  --s-icon-on-surface: var(--p-neutral-300);
+
+  /* Focus ring for dark mode */
+  --s-focus-ring-inverse: var(--p-neutral-700);
+}

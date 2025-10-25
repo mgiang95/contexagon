@@ -1,0 +1,164 @@
+/* =================================
+   TOKENS/SEMANTIC/TYPOGRAPHY
+   Semantic Typography Tokens
+   ================================= */
+
+:root {
+  /* Additional responsive font sizes */
+  --s-font-size-display: clamp(
+    2.7994rem,
+    2.4301rem + 1.8461cqi,
+    3.8147rem
+  ); /* Display: 45px → 61px */
+  --s-font-size-h1: clamp(
+    2.3328rem,
+    2.0714rem + 1.3072cqi,
+    3.0518rem
+  ); /* H1: 37px → 49px */
+  --s-font-size-h2: clamp(
+    1.944rem,
+    1.7631rem + 0.9044cqi,
+    2.4414rem
+  ); /* H2: 31px → 39px */
+  --s-font-size-h3: clamp(
+    1.62rem,
+    1.4989rem + 0.6057cqi,
+    1.9531rem
+  ); /* H3: 26px → 31px */
+  --s-font-size-h4: clamp(
+    1.35rem,
+    1.2727rem + 0.3864cqi,
+    1.5625rem
+  ); /* H4: 22px → 25px */
+  --s-font-size-h5: clamp(
+    1.125rem,
+    1.0795rem + 0.2273cqi,
+    1.25rem
+  ); /* H5: 18px → 20px */
+  --s-font-size-h6: clamp(
+    1rem,
+    0.9545rem + 0.2273cqi,
+    1.125rem
+  ); /* H6: 16px → 18px */
+  --s-font-size-body: clamp(
+    1rem,
+    0.9545rem + 0.2273cqi,
+    1.125rem
+  ); /* Body: 16px → 18px */
+  --s-font-size-body-large: clamp(
+    1.125rem,
+    1.0795rem + 0.2273cqi,
+    1.25rem
+  ); /* Body Large: 18px → 20px */
+  --s-font-size-small: clamp(
+    0.875rem,
+    0.8523rem + 0.1136cqi,
+    0.9375rem
+  ); /* Small: 14px → 15px */
+  --s-font-size-tiny: clamp(
+    0.75rem,
+    0.7386rem + 0.0568cqi,
+    0.8125rem
+  ); /* Tiny: 12px → 13px */
+  --s-font-size-caption: clamp(
+    0.6875rem,
+    0.6761rem + 0.0568cqi,
+    0.75rem
+  ); /* Caption: 11px → 12px */
+
+  /* Semantische Line-Heights */
+  --s-line-height-display: 1.1;
+  --s-line-height-heading: 1.25;
+  --s-line-height-subheading: 1.35;
+  --s-line-height-body: 1.6;
+  --s-line-height-small: 1.5;
+  --s-line-height-caption: 1.4;
+
+  /* Semantische Letter-Spacing */
+  --s-letter-spacing-display: -0.04em;
+  --s-letter-spacing-heading: -0.02em;
+  --s-letter-spacing-body: 0;
+  --s-letter-spacing-small: 0.01em;
+  --s-letter-spacing-caption: 0.02em;
+
+  /* Font-Weight-Mapping */
+  --s-font-weight-display: var(--p-font-weight-extrabold);
+  --s-font-weight-heading: var(--p-font-weight-bold);
+  --s-font-weight-subheading: var(--p-font-weight-semibold);
+  --s-font-weight-body: var(--p-font-weight-regular);
+  --s-font-weight-emphasis: var(--p-font-weight-medium);
+
+  /* ===== TEXT & CONTENT ===== */
+  /* Text Hierarchy */
+  --s-text-primary: var(--p-neutral-900); /* Haupttext */
+  --s-text-secondary: var(--p-neutral-800); /* Sekundärtext */
+  --s-text-tertiary: var(--p-neutral-700); /* Hilfstext */
+  --s-text-quaternary: var(--p-neutral-600); /* Placeholder */
+  --s-text-disabled: var(--p-neutral-300); /* Deaktiviert */
+
+  /* Text on Surfaces */
+  --s-text-on-primary: var(--p-neutral-950); /* Text auf Brand */
+  --s-text-on-secondary: var(--p-neutral-900); /* Text auf Sekundär */
+  --s-text-on-surface: var(--p-neutral-900); /* Text auf Standard */
+  --s-text-on-glass: var(--p-primary-950); /* Text auf Glass */
+  --s-text-on-overlay: var(--p-neutral-50); /* Text auf Overlay */
+  --s-text-on-inverse: var(--p-neutral-900); /* Text auf Dunkel */
+
+  /* Interactive Text */
+  --s-text-link: var(--p-neutral-950);
+  --s-text-link-hover: var(--p-primary-900);
+  --s-text-link-active: var(--p-accent-500);
+  --s-text-link-visited: var(--p-primary-800);
+  --s-text-link-disabled: var(--p-neutral-400);
+
+  /* Status Text */
+  --s-text-success: var(--p-success-700);
+  --s-text-warning: var(--p-warning-700);
+  --s-text-error: var(--p-error-700);
+  --s-text-info: var(--p-info-700);
+
+  /* CHANGE */
+  --s-focus-ring: #0066cc;
+  --s-focus-ring-alpha: rgba(0, 102, 204, 0.2);
+
+  /* Background Colors (für Accessibility Controls) */
+  --s-bg-surface: #ffffff;
+  --s-bg-interactive: #3b82f6;
+  --s-bg-interactive-hover: #2563eb;
+  --s-bg-primary: #059669;
+  --s-border-default: #e5e7eb;
+  --s-border-primary: #10b981;
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+[data-theme="dark"] {
+  /* ===== TEXT & CONTENT ===== */
+  /* Text Hierarchy */
+  --s-text-primary: var(--p-neutral-50); /* Haupttext */
+  --s-text-secondary: var(--p-neutral-100); /* Sekundärtext */
+  --s-text-tertiary: var(--p-neutral-700); /* Hilfstext */
+  --s-text-quaternary: var(--p-neutral-600); /* Placeholder */
+  --s-text-disabled: var(--p-neutral-300); /* Deaktiviert */
+
+  /* Text on Surfaces */
+  --s-text-on-primary: var(--p-neutral-950); /* Text auf Brand */
+  --s-text-on-secondary: var(--p-neutral-200); /* Text auf Sekundär */
+  --s-text-tertiary: var(--p-neutral-500);
+  --s-text-on-surface: var(--p-neutral-950); /* Text auf Standard */
+  --s-text-on-glass: var(--p-primary-50); /* Text auf Glass */
+  --s-text-on-overlay: var(--p-neutral-900); /* Text auf Overlay */
+  --s-text-on-inverse: var(--p-neutral-900); /* Text auf Dunkel */
+
+  /* Interactive Text */
+  --s-text-link: var(--p-neutral-50);
+  --s-text-link-hover: var(--p-primary-100);
+  --s-text-link-active: var(--p-accent-500);
+  --s-text-link-visited: var(--p-primary-200);
+  --s-text-link-disabled: var(--p-neutral-700);
+
+  /* Status Text */
+  --s-text-success: var(--p-success-700);
+  --s-text-warning: var(--p-warning-700);
+  --s-text-error: var(--p-error-700);
+  --s-text-info: var(--p-info-700);
+}

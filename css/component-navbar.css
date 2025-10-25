@@ -1,0 +1,171 @@
+/* tokens/components/navbar.css */
+:root {
+  /* ===== NAVBAR PROPERTIES ===== */
+  --c-navbar-font-size: var(--s-font-size-body);
+  --c-button-line-height: var(--s-line-height-body);
+  --c-button-font-weight: var(--p-font-weight-semibold);
+  --c-button-padding-block: var(--p-spacing-xs);
+  --c-button-padding-inline: var(--p-spacing-s);
+  --c-navbar-border-bottom: var(--s-border-neutral-subtle);
+  --c-navbar-border-width: var(--p-border-width-m);
+  --c-navbar-transition: var(--p-transition-duration-medium)
+    var(--p-transition-timing);
+  --c-button-gap: var(--p-spacing-xs);
+}
+
+.site-header {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  border-bottom: var(--c-navbar-border-width) solid
+    var(--c-navbar-border-bottom);
+  /* Bg with Pseudo-Element */
+  background: rgba(255, 255, 255, 0.01);
+
+  will-change: border;
+  transition: border var(--c-navbar-transition);
+}
+
+.site-header::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    var(--s-glass-gradient-angle),
+    var(--s-glass-gradient-start) 0%,
+    var(--s-glass-gradient-end) 100%
+  );
+  backdrop-filter: blur(var(--p-blur-l));
+  -webkit-backdrop-filter: blur(var(--p-blur-l));
+  will-change: opacity, background;
+  transition: all var(--c-navbar-transition);
+  box-shadow: var(--p-shadow-s);
+}
+
+.site-header .header-image {
+  width: clamp(
+    7.8125rem,
+    6.9097rem + 3.8521vw,
+    9.375rem
+  ) !important; /* Scaling logo size*/
+}
+
+/* Navigation Styling */
+.main-nav .inside-navigation {
+  gap: 1rem; /* Gap menu items */
+}
+
+.main-nav a {
+  font-size: calc(var(--s-font-size-body) * var(--_font-scale-multiplier));
+  line-height: var(--s-line-height-body);
+  font-weight: var(--s-font-weight-subheading);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+/* ============================================
+   Navigation Links
+   ============================================ */
+
+.main-nav a,
+.nav a,
+.navigation a {
+  text-decoration: none !important;
+  position: relative;
+}
+
+.main-nav a::after,
+.main-nav a::after,
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--p-transition-duration-fast)
+    var(--p-transition-timing);
+}
+
+.main-nav a:hover::after,
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Exclamation for CTA button */
+#navbar-cta {
+  color: var(--c-button-secondary-text);
+  font-weight: var(--c-button-font-weight) !important;
+  transition: var(--c-button-transition) !important;
+  box-shadow: var(--s-shadow-emphasis);
+}
+
+#navbar-cta:hover:not(:disabled) {
+  background-color: var(--c-button-secondary-bg-hover);
+  border-color: var(--c-button-secondary-border-hover);
+}
+
+#navbar-cta:active:not(:disabled) {
+  background-color: var(--c-button-secondary-bg-active);
+  transform: translateY(1px);
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .main-nav a::after,
+  .main-nav a::after {
+    transition: none !important;
+  }
+}
+
+/* WP-component: Innenabstände und maximale Breite */
+.inside-header {
+  padding: var(--p-spacing-2xs) clamp(0rem, -1.4545rem + 7.2727vw, 4rem);
+  max-width: 1600px;
+  justify-content: center;
+}
+
+/* Move content downwards because of fixed navbard */
+.site-content {
+  position: relative;
+  margin-top: -150px;
+}
+
+/*------------------------ Responsive Design ------------------------*/
+/* 17.6.25: Breakpoints are needed because of Generatepress Framework */
+
+/* Tablet
+@media (min-width: 768px) and (max-width: 1023px) {
+  .inside-header {
+    padding-left: 2rem;
+	padding-right: 2rem;
+  }
+}
+ */
+/* Mobile 
+@media (max-width: 767px) {
+  .inside-header {
+    padding-left: 1rem;
+	padding-right: 1rem;
+  }
+  
+  .main-nav .main-nav ul li a {
+    padding: 0 var(--p-spacing-s);
+	}
+}
+    */
