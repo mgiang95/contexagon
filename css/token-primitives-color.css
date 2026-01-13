@@ -1,0 +1,187 @@
+/* token-primitives-color.css
+   Layer: @layer tokens
+   Purpose: Define full primitive color scales (50..950) for primary, accent, neutral,
+            and status palettes (success, warning, error, info) using OKLCH with HSL fallbacks.
+   Notes:
+   - Consumers (semantic layer) should only map roles to these primitives.
+   - A11y/contrast modes may override these primitives, but should NOT be the first definition.
+*/
+
+:root {
+  /* ======= Hue Sources (single source of truth) ======= */
+  --p-primary-hue: 210deg; /* brand primary (blue-ish by default) */
+  --p-accent-hue: 265deg; /* secondary/accent (violet) */
+  --p-success-hue: 150deg; /* green */
+  --p-warning-hue: 70deg; /* yellow */
+  --p-error-hue: 25deg; /* red/orange */
+  --p-info-hue: 220deg; /* info blue */
+
+  /* ======= Neutral Scale (near-achromatic) ======= */
+  /* HSL fallbacks (first) + OKLCH definitive values (second) */
+  --p-neutral-50: hsl(0 0% 98%);
+  --p-neutral-50: oklch(98% 0.005 240);
+  --p-neutral-100: hsl(0 0% 96%);
+  --p-neutral-100: oklch(96% 0.006 240);
+  --p-neutral-200: hsl(0 0% 93%);
+  --p-neutral-200: oklch(93% 0.007 240);
+  --p-neutral-300: hsl(0 0% 88%);
+  --p-neutral-300: oklch(88% 0.01 240);
+  --p-neutral-400: hsl(0 0% 80%);
+  --p-neutral-400: oklch(80% 0.015 240);
+  --p-neutral-500: hsl(0 0% 73%);
+  --p-neutral-500: oklch(73% 0.02 240);
+  --p-neutral-600: hsl(0 0% 63%);
+  --p-neutral-600: oklch(63% 0.02 240);
+  --p-neutral-700: hsl(0 0% 49%);
+  --p-neutral-700: oklch(49% 0.02 240);
+  --p-neutral-800: hsl(0 0% 38%);
+  --p-neutral-800: oklch(38% 0.018 240);
+  --p-neutral-900: hsl(0 0% 28%);
+  --p-neutral-900: oklch(28% 0.015 240);
+  --p-neutral-950: hsl(0 0% 18%);
+  --p-neutral-950: oklch(18% 0.01 240);
+
+  /* ======= Primary Scale ======= */
+  --p-primary-50: hsl(var(--p-primary-hue) 85% 96%);
+  --p-primary-50: oklch(96% 0.04 var(--p-primary-hue));
+  --p-primary-100: hsl(var(--p-primary-hue) 82% 92%);
+  --p-primary-100: oklch(92% 0.06 var(--p-primary-hue));
+  --p-primary-200: hsl(var(--p-primary-hue) 78% 86%);
+  --p-primary-200: oklch(86% 0.08 var(--p-primary-hue));
+  --p-primary-300: hsl(var(--p-primary-hue) 75% 79%);
+  --p-primary-300: oklch(79% 0.1 var(--p-primary-hue));
+  --p-primary-400: hsl(var(--p-primary-hue) 73% 70%);
+  --p-primary-400: oklch(70% 0.13 var(--p-primary-hue));
+  --p-primary-500: hsl(var(--p-primary-hue) 70% 60%);
+  --p-primary-500: oklch(60% 0.15 var(--p-primary-hue));
+  --p-primary-600: hsl(var(--p-primary-hue) 68% 52%);
+  --p-primary-600: oklch(52% 0.15 var(--p-primary-hue));
+  --p-primary-700: hsl(var(--p-primary-hue) 66% 43%);
+  --p-primary-700: oklch(43% 0.13 var(--p-primary-hue));
+  --p-primary-800: hsl(var(--p-primary-hue) 64% 35%);
+  --p-primary-800: oklch(35% 0.11 var(--p-primary-hue));
+  --p-primary-900: hsl(var(--p-primary-hue) 62% 28%);
+  --p-primary-900: oklch(28% 0.09 var(--p-primary-hue));
+  --p-primary-950: hsl(var(--p-primary-hue) 60% 22%);
+  --p-primary-950: oklch(22% 0.06 var(--p-primary-hue));
+
+  /* ======= Accent Scale ======= */
+  --p-accent-50: hsl(var(--p-accent-hue) 85% 96%);
+  --p-accent-50: oklch(96% 0.04 var(--p-accent-hue));
+  --p-accent-100: hsl(var(--p-accent-hue) 82% 92%);
+  --p-accent-100: oklch(92% 0.06 var(--p-accent-hue));
+  --p-accent-200: hsl(var(--p-accent-hue) 78% 86%);
+  --p-accent-200: oklch(86% 0.08 var(--p-accent-hue));
+  --p-accent-300: hsl(var(--p-accent-hue) 75% 79%);
+  --p-accent-300: oklch(79% 0.1 var(--p-accent-hue));
+  --p-accent-400: hsl(var(--p-accent-hue) 73% 70%);
+  --p-accent-400: oklch(70% 0.13 var(--p-accent-hue));
+  --p-accent-500: hsl(var(--p-accent-hue) 70% 60%);
+  --p-accent-500: oklch(60% 0.15 var(--p-accent-hue));
+  --p-accent-600: hsl(var(--p-accent-hue) 68% 52%);
+  --p-accent-600: oklch(52% 0.15 var(--p-accent-hue));
+  --p-accent-700: hsl(var(--p-accent-hue) 66% 43%);
+  --p-accent-700: oklch(43% 0.13 var(--p-accent-hue));
+  --p-accent-800: hsl(var(--p-accent-hue) 64% 35%);
+  --p-accent-800: oklch(35% 0.11 var(--p-accent-hue));
+  --p-accent-900: hsl(var(--p-accent-hue) 62% 28%);
+  --p-accent-900: oklch(28% 0.09 var(--p-accent-hue));
+  --p-accent-950: hsl(var(--p-accent-hue) 60% 22%);
+  --p-accent-950: oklch(22% 0.06 var(--p-accent-hue));
+
+  /* ======= Success (Green) ======= */
+  --p-success-50: hsl(var(--p-success-hue) 70% 96%);
+  --p-success-50: oklch(98% 0.03 var(--p-success-hue));
+  --p-success-100: hsl(var(--p-success-hue) 68% 92%);
+  --p-success-100: oklch(95% 0.05 var(--p-success-hue));
+  --p-success-200: hsl(var(--p-success-hue) 65% 86%);
+  --p-success-200: oklch(90% 0.07 var(--p-success-hue));
+  --p-success-300: hsl(var(--p-success-hue) 62% 78%);
+  --p-success-300: oklch(82% 0.09 var(--p-success-hue));
+  --p-success-400: hsl(var(--p-success-hue) 60% 70%);
+  --p-success-400: oklch(74% 0.12 var(--p-success-hue));
+  --p-success-500: hsl(var(--p-success-hue) 58% 60%);
+  --p-success-500: oklch(65% 0.15 var(--p-success-hue));
+  --p-success-600: hsl(var(--p-success-hue) 55% 52%);
+  --p-success-600: oklch(58% 0.15 var(--p-success-hue));
+  --p-success-700: hsl(var(--p-success-hue) 52% 43%);
+  --p-success-700: oklch(48% 0.13 var(--p-success-hue));
+  --p-success-800: hsl(var(--p-success-hue) 50% 35%);
+  --p-success-800: oklch(40% 0.11 var(--p-success-hue));
+  --p-success-900: hsl(var(--p-success-hue) 48% 28%);
+  --p-success-900: oklch(30% 0.09 var(--p-success-hue));
+  --p-success-950: hsl(var(--p-success-hue) 45% 22%);
+  --p-success-950: oklch(22% 0.06 var(--p-success-hue));
+
+  /* ======= Warning (Yellow) ======= */
+  --p-warning-50: hsl(var(--p-warning-hue) 95% 96%);
+  --p-warning-50: oklch(98% 0.05 var(--p-warning-hue));
+  --p-warning-100: hsl(var(--p-warning-hue) 93% 92%);
+  --p-warning-100: oklch(95% 0.07 var(--p-warning-hue));
+  --p-warning-200: hsl(var(--p-warning-hue) 90% 88%);
+  --p-warning-200: oklch(91% 0.09 var(--p-warning-hue));
+  --p-warning-300: hsl(var(--p-warning-hue) 88% 82%);
+  --p-warning-300: oklch(85% 0.12 var(--p-warning-hue));
+  --p-warning-400: hsl(var(--p-warning-hue) 85% 72%);
+  --p-warning-400: oklch(75% 0.16 var(--p-warning-hue));
+  --p-warning-500: hsl(var(--p-warning-hue) 82% 60%);
+  --p-warning-500: oklch(63% 0.18 var(--p-warning-hue));
+  --p-warning-600: hsl(var(--p-warning-hue) 80% 52%);
+  --p-warning-600: oklch(55% 0.18 var(--p-warning-hue));
+  --p-warning-700: hsl(var(--p-warning-hue) 78% 43%);
+  --p-warning-700: oklch(45% 0.16 var(--p-warning-hue));
+  --p-warning-800: hsl(var(--p-warning-hue) 75% 35%);
+  --p-warning-800: oklch(37% 0.12 var(--p-warning-hue));
+  --p-warning-900: hsl(var(--p-warning-hue) 70% 28%);
+  --p-warning-900: oklch(28% 0.09 var(--p-warning-hue));
+  --p-warning-950: hsl(var(--p-warning-hue) 65% 22%);
+  --p-warning-950: oklch(20% 0.06 var(--p-warning-hue));
+
+  /* ======= Error (Red/Orange) ======= */
+  --p-error-50: hsl(var(--p-error-hue) 92% 96%);
+  --p-error-50: oklch(98% 0.05 var(--p-error-hue));
+  --p-error-100: hsl(var(--p-error-hue) 90% 92%);
+  --p-error-100: oklch(95% 0.07 var(--p-error-hue));
+  --p-error-200: hsl(var(--p-error-hue) 88% 86%);
+  --p-error-200: oklch(90% 0.1 var(--p-error-hue));
+  --p-error-300: hsl(var(--p-error-hue) 85% 78%);
+  --p-error-300: oklch(82% 0.13 var(--p-error-hue));
+  --p-error-400: hsl(var(--p-error-hue) 82% 69%);
+  --p-error-400: oklch(72% 0.17 var(--p-error-hue));
+  --p-error-500: hsl(var(--p-error-hue) 78% 58%);
+  --p-error-500: oklch(60% 0.2 var(--p-error-hue));
+  --p-error-600: hsl(var(--p-error-hue) 75% 50%);
+  --p-error-600: oklch(52% 0.2 var(--p-error-hue));
+  --p-error-700: hsl(var(--p-error-hue) 72% 42%);
+  --p-error-700: oklch(44% 0.18 var(--p-error-hue));
+  --p-error-800: hsl(var(--p-error-hue) 68% 34%);
+  --p-error-800: oklch(36% 0.15 var(--p-error-hue));
+  --p-error-900: hsl(var(--p-error-hue) 64% 27%);
+  --p-error-900: oklch(28% 0.11 var(--p-error-hue));
+  --p-error-950: hsl(var(--p-error-hue) 60% 21%);
+  --p-error-950: oklch(20% 0.08 var(--p-error-hue));
+
+  /* ======= Info (Blue) ======= */
+  --p-info-50: hsl(var(--p-info-hue) 90% 96%);
+  --p-info-50: oklch(98% 0.05 var(--p-info-hue));
+  --p-info-100: hsl(var(--p-info-hue) 88% 92%);
+  --p-info-100: oklch(95% 0.07 var(--p-info-hue));
+  --p-info-200: hsl(var(--p-info-hue) 86% 86%);
+  --p-info-200: oklch(90% 0.09 var(--p-info-hue));
+  --p-info-300: hsl(var(--p-info-hue) 84% 79%);
+  --p-info-300: oklch(82% 0.12 var(--p-info-hue));
+  --p-info-400: hsl(var(--p-info-hue) 82% 70%);
+  --p-info-400: oklch(72% 0.15 var(--p-info-hue));
+  --p-info-500: hsl(var(--p-info-hue) 78% 60%);
+  --p-info-500: oklch(60% 0.18 var(--p-info-hue));
+  --p-info-600: hsl(var(--p-info-hue) 76% 52%);
+  --p-info-600: oklch(52% 0.18 var(--p-info-hue));
+  --p-info-700: hsl(var(--p-info-hue) 74% 43%);
+  --p-info-700: oklch(43% 0.16 var(--p-info-hue));
+  --p-info-800: hsl(var(--p-info-hue) 72% 35%);
+  --p-info-800: oklch(35% 0.13 var(--p-info-hue));
+  --p-info-900: hsl(var(--p-info-hue) 70% 28%);
+  --p-info-900: oklch(28% 0.1 var(--p-info-hue));
+  --p-info-950: hsl(var(--p-info-hue) 68% 22%);
+  --p-info-950: oklch(22% 0.07 var(--p-info-hue));
+}

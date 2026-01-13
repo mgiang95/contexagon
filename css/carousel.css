@@ -1,0 +1,190 @@
+/* ===== Case Carousel – tokenbasiert ===== */
+:root {
+  --c-case-carousel-card-height: clamp(
+    260px,
+    48vh,
+    500px
+  ); /* fixe Zeilenhöhe → kein Springen */
+  --c-case-carousel-card-width: 765px; /* Obergrenze Card-Breite */
+  --c-case-carousel-card-gap: var(--p-spacing-s);
+  --c-case-carousel-stagger-amount: 0.1; /* X% der Kartenhöhe */
+  --c-case-carousel-stagger-offset: calc(
+    var(--c-case-carousel-card-height) * var(--c-case-carousel-stagger-amount)
+  );
+
+  --c-case-carousel-card-radius: var(--p-radius-xl);
+  --c-case-carousel-card-shadow: var(--p-shadow-m);
+  --c-case-carousel-card-overlay-bg: color-mix(
+    in oklch,
+    var(--p-neutral-950) 70%,
+    transparent 30%
+  );
+  --c-case-carousel-card-text: var(--p-neutral-50);
+  --c-case-carousel-card-overlay-collapsed: calc(
+    calc(5.75rem * var(--_font-scale-multiplier)) * var(--_density-multiplier)
+  ); /* immer sichtbar (Title+Sub) */
+  --c-case-carousel-card-overlay-expanded: calc(
+    60% * var(--_font-scale-multiplier) * var(--_density-multiplier)
+  ); /* expandierter Bereich */
+}
+
+.case-carousel {
+  position: relative;
+  padding-inline: var(--p-spacing-l);
+  padding-bottom: calc(
+    var(--p-spacing-m) + var(--c-case-carousel-stagger-offset)
+  );
+  background: transparent;
+  overflow: hidden; /* iOS-stabiler als clip */
+  outline: none;
+}
+
+/* Controls */
+
+.case-carousel__controls {
+  display: flex;
+  gap: var(--p-spacing-xs);
+  align-items: center;
+  justify-content: flex-end;
+  margin-block-end: var(--p-spacing-xl);
+  position: relative;
+  z-index: 2;
+}
+
+/* Track */
+.case-carousel__track {
+  display: flex;
+  gap: var(--c-case-carousel-card-gap);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: nowrap;
+  will-change: transform;
+  transform: translateZ(0);
+  touch-action: pan-y;
+  cursor: grab;
+}
+.case-carousel.is-dragging .case-carousel__track {
+  cursor: grabbing;
+}
+
+/* Slides/Cards */
+.case-carousel__slide {
+  flex: 0 0 auto;
+  display: inline-flex;
+}
+
+.case-carousel__card {
+  position: relative;
+  display: inline-grid;
+  place-items: stretch;
+  height: var(--c-case-carousel-card-height);
+  width: auto;
+  max-width: var(--c-case-carousel-card-width);
+  border-radius: var(--c-case-carousel-card-radius);
+  overflow: clip;
+  color: var(--c-case-carousel-card-text);
+  box-shadow: var(--c-case-carousel-card-shadow);
+  text-decoration: none;
+  touch-action: pan-y;
+}
+
+.case-carousel__slide:nth-child(odd) .case-carousel__card {
+  transform: translateY(calc(var(--c-case-carousel-stagger-offset) * -1));
+}
+.case-carousel__slide:nth-child(even) .case-carousel__card {
+  transform: translateY(var(--c-case-carousel-stagger-offset));
+}
+
+/* Bild */
+.case-carousel__img {
+  height: 100%;
+  width: auto;
+  display: block;
+  -webkit-user-drag: none;
+  user-drag: none;
+  touch-action: pan-y;
+}
+
+/* Overlay (immer sichtbar, expandiert auf Hover/Focus) */
+.case-carousel__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--p-spacing-s);
+  background: var(--c-case-carousel-card-overlay-bg);
+  backdrop-filter: blur(var(--p-blur-xs));
+  -webkit-backdrop-filter: blur(var(--p-blur-xs)); /* Safari */
+
+  color: var(--c-case-carousel-card-text); /* falls separat von Card */
+  overflow: hidden;
+  max-height: var(--c-case-carousel-card-overlay-collapsed);
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  display: grid;
+  gap: 0rem;
+}
+
+.case-carousel__title {
+  margin-bottom: calc(
+    1.5rem * var(--_font-scale-multiplier) * var(--_density-multiplier)
+  ) !important;
+}
+.case-carousel__desc {
+  opacity: 0.9;
+}
+.case-carousel__more {
+  opacity: 0.9;
+}
+
+.case-carousel__card:hover .case-carousel__overlay,
+.case-carousel__card:focus-within .case-carousel__overlay {
+  max-height: var(--c-case-carousel-card-overlay-expanded);
+  padding-bottom: calc(
+    var(--p-spacing-s) * var(--_density-multiplier)
+  ) !important;
+}
+
+/* Focusring */
+.case-carousel__card:focus-visible {
+  outline: var(--s-focus-ring) solid var(--s-focus-ring-width);
+  outline-offset: 0.5rem;
+}
+
+/* SR Utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  white-space: nowrap;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .case-carousel__overlay {
+    transition: none;
+  }
+}
+
+/* Mobile: einheitliches Portrait-Format */
+@media (max-width: 700px) {
+  .case-carousel[data-mobile="portrait"] .case-carousel__card {
+    height: auto;
+    width: min(72vw, 360px);
+    aspect-ratio: 3 / 4;
+  }
+  .case-carousel[data-mobile="portrait"] .case-carousel__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Während Drag keine Selektion */
+.case-carousel.is-dragging,
+.case-carousel.is-dragging * {
+  user-select: none;
+}

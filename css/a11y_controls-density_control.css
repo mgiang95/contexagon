@@ -1,7 +1,6 @@
 /* =================================
    ACCESSIBILITY/DENSITY-CONTROL
    ================================= */
-
 :root {
   --_density-multiplier: 1;
 }
@@ -19,7 +18,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .density-scaling-active * {
+  .density-scaling-active :where(*) {
     transition: none !important;
   }
 }

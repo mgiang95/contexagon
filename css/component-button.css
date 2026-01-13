@@ -1,7 +1,9 @@
 /* tokens/components/button.css */
 :root {
   /* ===== BUTTON BASE PROPERTIES ===== */
-  --c-button-font-size: var(--s-font-size-body);
+  --c-button-font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  );
   --c-button-line-height: var(--s-line-height-body);
   --c-button-font-weight: var(--p-font-weight-semibold);
   --c-button-padding-block: var(--p-spacing-xs);
@@ -73,8 +75,8 @@
   --c-button-toggle-text-hover: var(--s-text-on-primary);
   --c-button-toggle-text-active: var(--s-text-on-primary);
   --c-button-toggle-border-color: var(--s-border-default, #d1d5db);
-  --c-button-toggle-border-hover: var(--s-border-interactive-active);
-  --c-button-toggle-border-active: var(--s-border-interactive-active);
+  --c-button-toggle-border-hover: var(--s-interactive-primary-hover);
+  --c-button-toggle-border-active: var(--s-interactive-primary-active);
   --c-button-toggle-icon-rotate: 0deg;
   --c-button-toggle-icon-rotate-active: 180deg;
 
@@ -174,6 +176,19 @@
   box-shadow: var(--c-button-primary-shadow);
 }
 
+.button_primary:visited:not(:disabled) {
+  color: var(--c-button-primary-text);
+}
+
+.button_primary:focus-visible {
+  outline: 3px solid var(--s-focus-ring, var(--p-accent-500));
+  outline-offset: 4px;
+  border-radius: 2px;
+  color: var(--c-button-primary-text);
+  background-color: var(--c-button-primary-bg-hover);
+  box-shadow: none;
+}
+
 .button_primary:hover:not(:disabled) {
   background-color: var(--c-button-primary-bg-hover);
 }
@@ -191,7 +206,7 @@
 /* Secondary Button (Neutral) */
 .button_secondary {
   background-color: var(--c-button-secondary-bg);
-  color: var(--c-button-secondary-text);
+  color: var(--c-button-secondary-text) !important;
   border: none;
   box-shadow: var(--c-button-secondary-shadow);
 }
@@ -529,21 +544,21 @@
 
 /* Navigation Button */
 /*.button--nav {
-  background-color: var(--s-interactive-primary);
-  color: var(--s-text-on-primary) !important;
-  padding: var(--c-button-padding-block) var(--c-button-padding-inline);
-  margin-left: var(--p-spacing-xs);
-  font-weight: var(--p-font-weight-medium);
-}
+	  background-color: var(--s-interactive-primary);
+	  color: var(--s-text-on-primary) !important;
+	  padding: var(--c-button-padding-block) var(--c-button-padding-inline);
+	  margin-left: var(--p-spacing-xs);
+	  font-weight: var(--p-font-weight-medium);
+	}
 
-.button--nav:hover:not(:disabled) {
-  background-color: var(--s-interactive-primary-hover);
-}
+	.button--nav:hover:not(:disabled) {
+	  background-color: var(--s-interactive-primary-hover);
+	}
 
-.button--nav:active:not(:disabled) {
-  background-color: var(--s-interactive-primary-active);
-}
-*/
+	.button--nav:active:not(:disabled) {
+	  background-color: var(--s-interactive-primary-active);
+	}
+	*/
 /* Back to Top Button (Glass Floating) */
 .button--back-to-top {
   /* Kombiniert floating, glass, und icon styles */
@@ -592,22 +607,22 @@
 
 /* ===== RESPONSIVE BEHAVIOR ===== */
 /*@media (max-width: 767px) {
-  .button--nav {
-	background-color: transparent;
-    color: var(--s-text-primary) !important;
-    padding: 0 0 0 var(--p-spacing-xs);
-    margin: 0;
-    border-radius: var(--c-button-radius);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-  
-  .button--nav:hover:not(:disabled) {
-    color: var(--s-interactive-primary);
-    background-color: transparent;
-    background: var(--s-surface-brand-subtle);
-  }
-*/
+	  .button--nav {
+		background-color: transparent;
+		color: var(--s-text-primary) !important;
+		padding: 0 0 0 var(--p-spacing-xs);
+		margin: 0;
+		border-radius: var(--c-button-radius);
+		backdrop-filter: none;
+		-webkit-backdrop-filter: none;
+	  }
+
+	  .button--nav:hover:not(:disabled) {
+		color: var(--s-interactive-primary);
+		background-color: transparent;
+		background: var(--s-surface-brand-subtle);
+	  }
+	*/
 /* Mobile menu item styling */
 .menu-item {
   padding: 0 0 0 var(--p-spacing-xs);
@@ -615,16 +630,16 @@
 }
 
 /* Mobile navigation specific
-  #site-navigation.toggled .inside-navigation > .button--nav {
-    display: block;
-    order: 2;
-    width: 100%;
-    line-height: 60px;
-  }
-  
-  .button--nav::before {
-    /*display: none;
-  }*/
+	  #site-navigation.toggled .inside-navigation > .button--nav {
+		display: block;
+		order: 2;
+		width: 100%;
+		line-height: 60px;
+	  }
+
+	  .button--nav::before {
+		/*display: none;
+	  }*/
 
 /* Floating buttons smaller on mobile */
 .button_floating,

@@ -2,7 +2,6 @@
    tokens/semantics/glass-effects.css
    Semantic tokens for glass effects across components
    ============================================ */
-
 :root {
   /* ===== GLASS EFFECT FOUNDATION ===== */
   --s-glass-angle: 230deg;

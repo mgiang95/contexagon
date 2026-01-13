@@ -1,11 +1,3 @@
-/* Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 /* General Styles */
 :root {
   /*------------------------ Animation ------------------------*/
@@ -18,26 +10,6 @@
   --p-transition-duration-medium: 0.3s;
   --p-transition-duration-slow: 0.5s;
   --p-transition-duration-delayed: 1s;
-
-  @media (prefers-reduced-motion: reduce) {
-    :root {
-      --p-transition-timing: linear;
-      --p-transition-duration-instant: 0s;
-      --p-transition-duration-fast: 0s;
-      --p-transition-duration-medium: 0s;
-      --p-transition-duration: 0s;
-      --p-transition-duration-slow: 0s;
-      --p-transition-duration-delayed: 0s;
-    }
-
-    /* Optional: Alle Animationen und Transitions komplett deaktivieren */
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
 
   /*------------------------ Border ------------------------*/
   --p-border-radius: 1rem; /* deprecated */
@@ -81,4 +53,28 @@
   --p-shadow-2xl: 0 25px 50px oklch(from var(--_shadow-color) l c h / 0.15);
   --p-shadow-inner: inset 0 2px 4px
     oklch(from var(--_shadow-color) l c h / 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --p-transition-timing: linear;
+    --p-transition-duration-instant: 0s;
+    --p-transition-duration-fast: 0s;
+    --p-transition-duration-medium: 0s;
+    --p-transition-duration: 0s; /* legacy */
+    --p-transition-duration-slow: 0s;
+    --p-transition-duration-delayed: 0s;
+  }
+
+  /* globale Bremsen mit niedriger Spezifität */
+  :where(*, *::before, *::after) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Smooth-Scrolling ausschalten */
+  html {
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,118 @@
+/* css/reset.css */
+@layer reset {
+  /* =================================
+   WordPress content overrides
+   ================================= */
+
+  .entry-content h1:first-child,
+  .entry-content .h1:first-child,
+  .post-content h1:first-child,
+  .post-content .h1:first-child {
+    margin-top: 0 !important;
+  }
+
+  /* GeneratePress Header-Integration */
+  .site-header .display,
+  .main-title .display {
+    margin-bottom: 0 !important;
+  }
+
+  /* Gutenberg Editor Support */
+  .editor-styles-wrapper {
+    font-family: var(--p-font-family-base) !important;
+  }
+
+  .editor-styles-wrapper .wp-block {
+    max-width: none !important;
+  }
+
+  /* WordPress Widgets Typography */
+  .widget h1,
+  .widget h2,
+  .widget h3,
+  .widget h4,
+  .widget h5,
+  .widget h6 {
+    font-family: var(--p-font-family-heading) !important;
+    margin-bottom: var(--p-spacing-s) !important;
+  }
+
+  .widget p {
+    font-size: calc(
+      var(--s-font-size-small) * var(--_font-scale-multiplier)
+    ) !important;
+    line-height: var(--s-line-height-body) !important;
+  }
+
+  /* WordPress Comments */
+  .comment-content p {
+    font-size: calc(
+      var(--s-font-size-body) * var(--_font-scale-multiplier)
+    ) !important;
+    line-height: var(--s-line-height-body) !important;
+  }
+
+  /* Breadcrumbs Override */
+  .breadcrumb-trail,
+  .rank-math-breadcrumb {
+    font-size: calc(
+      var(--s-font-size-small) * var(--_font-scale-multiplier)
+    ) !important;
+    line-height: var(--s-line-height-small) !important;
+  }
+
+  /* Reset p margins */
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* 1) Box-Modell & Baselines */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  :where(html) {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Tab-Breite als sinnvolle Voreinstellung */
+    tab-size: 4;
+  }
+  :where(body) {
+    margin: 0;
+    min-height: 100dvh; /* moderne Viewport-Einheiten */
+  }
+
+  /* 3) Typografie-Defaults & Listen */
+  :where(p, h1, h2, h3, h4, h5, h6, figure, blockquote, dl, dd) {
+    margin: 0;
+  }
+  :where(ul[role="list"], ol[role="list"]) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 4) Formulare */
+  :where(button, input, select, textarea) {
+    font: inherit;
+    color: inherit;
+    margin: 0;
+  }
+  :where(textarea) {
+    resize: vertical;
+  }
+
+  /* 5) Tabellen & Sonstiges */
+  :where(table) {
+    border-collapse: collapse;
+  }
+  :where([hidden]) {
+    display: none !important;
+  }
+
+  /* 6) Scroll-Verhalten: default belassen (Smooth-Scroll steuert ihr woanders) */
+  /* html { scroll-behavior: auto; } */
+}

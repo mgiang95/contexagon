@@ -111,6 +111,29 @@
   );
   --s-interactive-warning-focus: var(--s-interactive-warning);
 
+  /* Interactive Transparent Primary (Brand) */
+  --s-interactive-transparent-primary: color-mix(
+    in oklch,
+    var(--p-primary-500),
+    transparent 50%
+  );
+  --s-interactive-transparent-primary-hover: color-mix(
+    in oklch,
+    var(--p-primary-500),
+    transparent 80%
+  );
+  --s-interactive-transparent-primary-active: color-mix(
+    in oklch,
+    var(--p-primary-500),
+    transparent 85%
+  );
+  --s-interactive-transparent-primary-disabled: color-mix(
+    in oklch,
+    var(--s-interactive-primary),
+    transparent 60%
+  ); /*rework*/
+  --s-interactive-primary-focus: var(--s-interactive-primary);
+
   /* ===== SURFACES & BACKGROUNDS ===== */
   /* Base Surfaces */
   --s-surface-neutral-default: var(--p-neutral-50); /* Haupthintergrund */

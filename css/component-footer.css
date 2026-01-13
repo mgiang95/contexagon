@@ -1,5 +1,5 @@
 .site-footer {
-  background-color: var(--c-section-primary-elevated);
+  background-color: var(--c-section-primary-body);
 }
 
 .footer-widgets-container {
@@ -8,8 +8,13 @@
 }
 
 .footer-icon {
-  color: var(--text-color);
+  color: var(--s-text-link);
   margin-bottom: 0 !important;
+  cursor: pointer;
+}
+
+.footer-icon:hover {
+  color: var(--s-text-link-hover) !important;
 }
 
 .footer-icon svg {
@@ -20,10 +25,6 @@
   height: 72px;
 }
 
-.footer-icon:hover {
-  fill: var(--interactive-primary);
-}
-
 .footer-logo {
   width: clamp(9.375rem, 8.2386rem + 5.6818cqi, 12.5rem);
 }
@@ -31,15 +32,15 @@
 /* Responsive Design */
 
 /* Tablet-Geräte 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .footer-widgets-container {
-	padding: 4rem 2rem !important;
-  }
-}
-*/
+	@media (min-width: 768px) and (max-width: 1023px) {
+	  .footer-widgets-container {
+		padding: 4rem 2rem !important;
+	  }
+	}
+	*/
 /* Mobile-Geräte 
-@media (max-width: 767px) {
-  .footer-widgets-container {
-	padding: 2rem 1rem !important;
-  }
-}*/
+	@media (max-width: 767px) {
+	  .footer-widgets-container {
+		padding: 2rem 1rem !important;
+	  }
+	}*/

@@ -2,13 +2,17 @@
 :root[data-theme="dark"] {
   --hero-image: url("https://contexagon.com/wp-content/uploads/2025/01/dark-hexagon_pattern.jpg");
   --competences-image: url("https://contexagon.com/wp-content/uploads/2025/02/dark-section-competences.jpg");
+  --competences-image-2: url("https://contexagon.com/wp-content/uploads/2025/11/dark-section-competences.svg");
   --pattern-tile: url("https://contexagon.com/wp-content/uploads/2025/01/dark-pattern_tile.png");
+  --competences-bg: var(--p-primary-800);
 }
 
 :root[data-theme="light"] {
   --hero-image: url("https://contexagon.com/wp-content/uploads/2025/01/light-hexagon_pattern.jpg");
   --competences-image: url("https://contexagon.com/wp-content/uploads/2025/02/light-section-competences.jpg");
+  --competences-image-2: url("https://contexagon.com/wp-content/uploads/2025/11/light-section-competences.svg");
   --pattern-tile: url("https://contexagon.com/wp-content/uploads/2025/01/light-pattern_tile.png");
+  --competences-bg: var(--p-accent-100);
 }
 
 .hero_img {
@@ -81,10 +85,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--competences-image) no-repeat center;
+  background: var(--competences-image-2) no-repeat center;
   background-repeat: no-repeat;
   background-size: cover;
   transform: translateZ(0);
+  background-color: var(--competences-bg);
   will-change: background-color, transform;
   transition: all var(--transition-duration) var(--transition-timing);
   backface-visibility: hidden;
@@ -99,13 +104,13 @@
 .pattern-background::before {
   content: "";
   position: absolute;
-  top: -80px;
+  top: -120px;
   left: -400px;
   width: 200%; /* Breiter für Rotation */
   height: 110%;
   background: var(--pattern-tile) repeat; /* Pattern */
   transform: rotate(-6deg); /* Drehen des Patterns */
-  opacity: 0.4; /* Transparenz */
+  opacity: 0.3; /* Transparenz */
   pointer-events: none; /* Keine Blockade von Interaktionen */
   mask-image: linear-gradient(
     to bottom,

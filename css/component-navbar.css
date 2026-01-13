@@ -1,17 +1,36 @@
 /* tokens/components/navbar.css */
 :root {
   /* ===== NAVBAR PROPERTIES ===== */
-  --c-navbar-font-size: var(--s-font-size-body);
-  --c-button-line-height: var(--s-line-height-body);
-  --c-button-font-weight: var(--p-font-weight-semibold);
-  --c-button-padding-block: var(--p-spacing-xs);
-  --c-button-padding-inline: var(--p-spacing-s);
+  --c-navbar-button-line-height: var(--s-line-height-body);
+  --c-navbar-button-font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  );
+  --c-navbar-button-font-weight: var(--p-font-weight-semibold);
+  --c-navbar-button-padding-block: var(--c-button-small-padding-block);
+  --c-navbar-button-padding-inline: var(--c-button-small-padding-inline);
   --c-navbar-border-bottom: var(--s-border-neutral-subtle);
   --c-navbar-border-width: var(--p-border-width-m);
-  --c-navbar-transition: var(--p-transition-duration-medium)
+  --c-navbar-button-transition: var(--p-transition-duration-medium)
     var(--p-transition-timing);
   --c-button-gap: var(--p-spacing-xs);
+
+  /* ===== NAVBAR LINK TOKENS ===== */
+  --c-navbar-link-color: var(--s-text-on-glass);
+  --c-navbar-link-hover-color: var(--s-interactive-primary-hover);
+  --c-navbar-link-active-color: var(--s-interactive-primary);
+  --c-navbar-link-bg-hover: color-mix(
+    in oklch,
+    var(--s-interactive-primary-hover) 15%,
+    transparent
+  );
+  --c-navbar-link-bg-active: color-mix(
+    in oklch,
+    var(--s-interactive-primary) 20%,
+    transparent
+  );
 }
+
+/* ===== FIXED HEADER / GLASS BACKGROUND ===== */
 
 .site-header {
   z-index: 999;
@@ -22,7 +41,6 @@
 
   border-bottom: var(--c-navbar-border-width) solid
     var(--c-navbar-border-bottom);
-  /* Bg with Pseudo-Element */
   background: rgba(255, 255, 255, 0.01);
 
   will-change: border;
@@ -33,10 +51,7 @@
   content: "";
   z-index: -1;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
 
   background: linear-gradient(
     var(--s-glass-gradient-angle),
@@ -58,79 +73,10 @@
   ) !important; /* Scaling logo size*/
 }
 
-/* Navigation Styling */
+/* ===== NAVIGATION LAYOUT ===== */
+
 .main-nav .inside-navigation {
   gap: 1rem; /* Gap menu items */
-}
-
-.main-nav a {
-  font-size: calc(var(--s-font-size-body) * var(--_font-scale-multiplier));
-  line-height: var(--s-line-height-body);
-  font-weight: var(--s-font-weight-subheading);
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-
-/* ============================================
-   Navigation Links
-   ============================================ */
-
-.main-nav a,
-.nav a,
-.navigation a {
-  text-decoration: none !important;
-  position: relative;
-}
-
-.main-nav a::after,
-.main-nav a::after,
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--p-transition-duration-fast)
-    var(--p-transition-timing);
-}
-
-.main-nav a:hover::after,
-.main-nav a:hover::after,
-.main-nav a:focus-visible::after,
-.main-nav a:focus-visible::after {
-  transform: scaleX(1);
-}
-
-/* Exclamation for CTA button */
-#navbar-cta {
-  color: var(--c-button-secondary-text);
-  font-weight: var(--c-button-font-weight) !important;
-  transition: var(--c-button-transition) !important;
-  box-shadow: var(--s-shadow-emphasis);
-}
-
-#navbar-cta:hover:not(:disabled) {
-  background-color: var(--c-button-secondary-bg-hover);
-  border-color: var(--c-button-secondary-border-hover);
-}
-
-#navbar-cta:active:not(:disabled) {
-  background-color: var(--c-button-secondary-bg-active);
-  transform: translateY(1px);
-}
-
-/* ============================================
-   Reduced Motion
-   ============================================ */
-@media (prefers-reduced-motion: reduce) {
-  .main-nav a::after,
-  .main-nav a::after {
-    transition: none !important;
-  }
 }
 
 /* WP-component: Innenabstände und maximale Breite */
@@ -140,32 +86,158 @@
   justify-content: center;
 }
 
-/* Move content downwards because of fixed navbard */
+/* Move content downwards because of fixed navbar */
 .site-content {
   position: relative;
   margin-top: -150px;
 }
 
+/* ============================================
+   Navigation Links – Base, Hover, Focus, Active
+   ============================================ */
+
+/* Basis-Styling für alle Menüpunkte */
+.main-nav a,
+.nav a,
+.navigation a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: var(--c-navbar-button-font-size);
+  line-height: var(--s-line-height-body) !important;
+  font-weight: var(--c-navbar-button-font-weight);
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+
+  color: var(--c-navbar-link-color);
+  padding-block: var(--c-button-small-padding-block);
+  padding-inline: var(--c-button-small-padding-inline);
+  border-radius: var(--c-button-radius);
+  transition: var(--c-navbar-button-transition) !important;
+}
+
+/* Hover mit der Maus */
+.main-nav a:hover,
+.nav a:hover,
+.navigation a:hover {
+  color: var(--c-navbar-link-hover-color);
+  background-color: var(--c-navbar-link-bg-hover);
+}
+
+/* Tastatur-Fokus (a11y wichtig!) */
+.main-nav a:focus-visible,
+.nav a:focus-visible,
+.navigation a:focus-visible {
+  outline: 2px solid var(--s-focus-ring);
+  outline-offset: 2px;
+  color: var(--c-navbar-link-active-color);
+  background-color: var(--c-navbar-link-bg-active);
+  box-shadow: 0 0 0 3px var(--s-focus-ring-alpha);
+}
+
+/* =========================================================
+   Active State – aktuelle Seite / Unterseiten
+   ========================================================= */
+
+/*
+  WordPress gibt automatisch Klassen aus:
+  - .current-menu-item       → genau diese Seite
+  - .current_page_item       → ebenfalls „aktuelle Seite“
+  - .current-menu-ancestor   → Elternpunkt einer Unterseite
+  Zusätzlich: aria-current="page" / "true" / "location"
+*/
+
+.main-nav .current-menu-item > a,
+.main-nav .current_page_item > a,
+.main-nav .current-menu-ancestor > a,
+.main-nav a[aria-current="page"],
+.main-nav a[aria-current="true"],
+.main-nav a[aria-current="location"] {
+  color: var(--c-navbar-link-active-color) !important;
+  background-color: unset;
+}
+
+/* Wenn aktiver Link Hover/Fokus hat → Stil bleibt konsistent */
+.main-nav .current-menu-item > a:hover,
+.main-nav .current_page_item > a:hover,
+.main-nav .current-menu-ancestor > a:hover,
+.main-nav a[aria-current="page"]:hover,
+.main-nav a[aria-current="true"]:hover,
+.main-nav a[aria-current="location"]:hover {
+  color: var(--c-navbar-link-active-color);
+  background-color: var(--c-navbar-link-bg-active);
+}
+
+/* =========================================================
+   CTA-Button im Navbar (ID-basiert)
+   ========================================================= */
+
+#navbar-cta {
+  color: var(--c-button-secondary-text);
+  font-size: var(--c-navbar-button-font-size) !important;
+  font-weight: var(--c-navbar-button-font-weight);
+  transition: var(--c-navbar-button-transition) !important;
+  box-shadow: var(--s-shadow-emphasis);
+}
+
+/* Hover für CTA */
+#navbar-cta:hover:not(:disabled) {
+  background-color: var(--c-button-secondary-bg-hover);
+  border-color: var(--c-button-secondary-border-hover);
+}
+
+/* Active State (Maus gedrückt) */
+#navbar-cta:active:not(:disabled) {
+  background-color: var(--c-button-secondary-bg-active);
+  transform: translateY(1px);
+}
+
+/* Fokus für CTA – klarer Ring */
+#navbar-cta:focus-visible {
+  outline: 3px solid var(--s-focus-ring);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px var(--s-focus-ring-alpha);
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .main-nav a,
+  .nav a,
+  .navigation a,
+  #navbar-cta {
+    transition: none !important;
+  }
+}
+
 /*------------------------ Responsive Design ------------------------*/
 /* 17.6.25: Breakpoints are needed because of Generatepress Framework */
+/* Abstand zu CTA in Desktop/Tablet */
+@media (min-width: 768px) {
+  #menu-mainmenu {
+    padding-inline-end: 1rem;
+  }
+}
 
-/* Tablet
+/* Tablet / Mobile – auskommentiert, falls du später anpassen willst
 @media (min-width: 768px) and (max-width: 1023px) {
   .inside-header {
     padding-left: 2rem;
-	padding-right: 2rem;
+    padding-right: 2rem;
   }
 }
- */
-/* Mobile 
+
 @media (max-width: 767px) {
   .inside-header {
     padding-left: 1rem;
-	padding-right: 1rem;
+    padding-right: 1rem;
   }
-  
+
   .main-nav .main-nav ul li a {
     padding: 0 var(--p-spacing-s);
-	}
+  }
 }
-    */
+*/

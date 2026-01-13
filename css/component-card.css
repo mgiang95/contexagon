@@ -2,7 +2,6 @@
    tokens/components/card.css
    Card component with multiple variants
    ============================================ */
-
 :root {
   /* ===== BASE CARD PROPERTIES (shared by all variants) ===== */
   --c-card-radius: var(--p-radius-l);
@@ -50,7 +49,7 @@
   --c-card-aurora-opacity-pulse-duration: 3000ms; /* Puls-Effekt fÃ¼r Sichtbarkeit */
 
   /* ===== CARD VARIANT: SOLID (Non-glass) ===== */
-  --c-card-solid-bg: var(--s-surface-elevated);
+  --c-card-solid-bg: var(--s-surface-neutral-default);
   --c-card-solid-border: var(--s-glass-border-width) solid
     var(--s-border-default);
   --c-card-solid-shadow: var(--s-shadow-default);
@@ -58,8 +57,8 @@
 }
 
 /* ============================================
-   Animation Properties
-   ============================================ */
+	   Animation Properties
+	   ============================================ */
 
 /* @property macht CSS-Variablen animierbar */
 @property --rotation-angle {
@@ -101,22 +100,27 @@
 }
 
 /* ============================================
-   Base Card Component
-   ============================================ */
+	   Base Card Component
+	   ============================================ */
 
 .card {
   position: relative;
   border-radius: var(--c-card-radius);
   padding: var(--c-card-padding);
-  container-type: inline-size;
-  container-name: card;
+  /*container-type: inline-size;
+  container-name: card;*/
   transition: transform var(--c-card-transition),
     box-shadow var(--c-card-transition);
 }
 
+.card--cq {
+  container-type: inline-size;
+  container-name: card;
+}
+
 /* ============================================
-   Card Variants
-   ============================================ */
+	   Card Variants
+	   ============================================ */
 
 /* Standard Glass Card */
 .card_glass {
@@ -211,8 +215,8 @@
 }
 
 /* ============================================
-   Card Modifiers
-   ============================================ */
+	   Card Modifiers
+	   ============================================ */
 
 /* Interactive Behavior */
 .card--interactive {
@@ -309,8 +313,8 @@
 }
 
 /* ============================================
-   Reduced Motion Support
-   ============================================ */
+	   Reduced Motion Support
+	   ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
   .card_aurora::before {

@@ -1,150 +1,467 @@
-/* Maximum Contrast bleibt wie gehabt */
+/* ============================================
+   MAXIMUM CONTRAST MODE - Nachhaltige Version
+   ============================================ */
+
+/* ============================================
+   BASE SETTINGS
+   ============================================ */
+
 .a11y-contrast-maximum {
-  /* Farben werden in JS überschrieben zu reinem Schwarz/Weiß */
-  --shadow-sm: none !important;
-  --shadow-md: none !important;
-  --shadow-lg: none !important;
-  --shadow-xl: none !important;
-  --a11y-contrast-border-width: 3px !important;
-  --focus-outline-width: 4px !important;
+  /* Layout & Effekte entfernen */
+  --s-shadow-sm: none;
+  --s-shadow-md: none;
+  --s-shadow-lg: none;
+  --s-shadow-xl: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-xl: none;
+
+  /* Borders & Outlines verstärken */
+  --a11y-contrast-border-width: 3px;
+  --focus-outline-width: 4px;
+  --s-glass-border-width: 3px;
+
+  /* Links unterstreichen */
+  --link-decoration: underline;
+  --link-decoration-thickness: 2px;
 }
 
-/* =================================
-   MAXIMUM CONTRAST MODE
-   ================================= */
+/* ============================================
+   LIGHT MODE - COLOR PALETTE
+   ============================================ */
 
-/* Light Mode + Maximum Contrast */
 .a11y-contrast-maximum {
-  /* Nur Schwarz und Weiß */
-  --p-primary-50: #000000 !important;
-  --p-primary-100: #000000 !important;
-  --p-primary-200: #000000 !important;
-  --p-primary-300: #ffffff !important;
-  --p-primary-400: #ffffff !important;
-  --p-primary-500: #ffffff !important;
-  --p-primary-600: #ffffff !important;
-  --p-primary-700: #ffffff !important;
-  --p-primary-800: #ffffff !important;
-  --p-primary-900: #ffffff !important;
-  --p-primary-950: #ffffff !important;
+  /* Primary Palette */
+  --p-primary-50: #000000;
+  --p-primary-100: #000000;
+  --p-primary-200: #000000;
+  --p-primary-300: #ffffff;
+  --p-primary-400: #ffffff;
+  --p-primary-500: #ffffff;
+  --p-primary-600: #ffffff;
+  --p-primary-700: #ffffff;
+  --p-primary-800: #ffffff;
+  --p-primary-900: #ffffff;
+  --p-primary-950: #ffffff;
 
-  --p-neutral-50: #000000 !important;
-  --p-neutral-100: #000000 !important;
-  --p-neutral-200: #000000 !important;
-  --p-neutral-300: #ffffff !important;
-  --p-neutral-400: #ffffff !important;
-  --p-neutral-500: #ffffff !important;
-  --p-neutral-600: #ffffff !important;
-  --p-neutral-700: #ffffff !important;
-  --p-neutral-800: #ffffff !important;
-  --p-neutral-900: #ffffff !important;
-  --p-neutral-950: #ffffff !important;
+  /* Neutral Palette */
+  --p-neutral-50: #000000;
+  --p-neutral-100: #000000;
+  --p-neutral-200: #000000;
+  --p-neutral-300: #ffffff;
+  --p-neutral-400: #ffffff;
+  --p-neutral-500: #ffffff;
+  --p-neutral-600: #ffffff;
+  --p-neutral-700: #ffffff;
+  --p-neutral-800: #ffffff;
+  --p-neutral-900: #ffffff;
+  --p-neutral-950: #ffffff;
 
-  /* Keine Schatten */
-  --shadow-sm: none !important;
-  --shadow-md: none !important;
-  --shadow-lg: none !important;
-  --shadow-xl: none !important;
+  /* Section Colors */
+  --c-section-primary-body: #ffffff;
+  --c-section-primary-subtle: #ffffff;
+  --c-section-primary-elevated: #ffffff;
 
-  /* Starke Borders */
-  --border-width: 3px !important;
-  --focus-outline-width: 4px !important;
+  /* Card Variant: Glass */
+  --s-text-on-glass: #000000;
+  --c-card-glass-bg: #ffffff;
+  --c-card-glass-border-image: #000000;
 
-  /* Links unterstrichen */
-  --link-decoration: underline !important;
-  --link-color: #000000 !important;
-  --link-hover-color: #000000 !important;
-  --link-visited-color: #000000 !important;
+  /* Card Variant: Aurora */
+  --c-card-aurora-bg: #ffffff;
+  --c-card-aurora-bg-hover: rgba(255, 255, 255, 0.2);
+  --c-card-aurora-border: 3px solid transparent;
+  --c-card-aurora-border-hover: 3px solid transparent;
+
+  /* Links */
+  --s-text-link-hover: var(--p-accent-500) !important;
 }
 
-/* Dark Mode + Maximum Contrast */
+/* Body Styles - Light Mode */
+.a11y-contrast-maximum body {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* ============================================
+   DARK MODE - COLOR PALETTE
+   ============================================ */
+
 [data-theme="dark"].a11y-contrast-maximum,
 .a11y-theme-dark.a11y-contrast-maximum {
-  /* Invertiert für Dark Mode */
-  --p-primary-50: #ffffff !important;
-  --p-primary-100: #ffffff !important;
-  --p-primary-200: #ffffff !important;
-  --p-primary-300: #000000 !important;
-  --p-primary-400: #000000 !important;
-  --p-primary-500: #000000 !important;
-  --p-primary-600: #000000 !important;
-  --p-primary-700: #000000 !important;
-  --p-primary-800: #000000 !important;
-  --p-primary-900: #000000 !important;
-  --p-primary-950: #000000 !important;
+  /* Section Colors */
+  --c-section-primary-body: #000000;
+  --c-section-primary-subtle: #000000;
+  --c-section-primary-elevated: #000000;
 
-  --p-neutral-50: #ffffff !important;
-  --p-neutral-100: #ffffff !important;
-  --p-neutral-200: #ffffff !important;
-  --p-neutral-300: #000000 !important;
-  --p-neutral-400: #000000 !important;
-  --p-neutral-500: #000000 !important;
-  --p-neutral-600: #000000 !important;
-  --p-neutral-700: #000000 !important;
-  --p-neutral-800: #000000 !important;
-  --p-neutral-900: #000000 !important;
-  --p-neutral-950: #000000 !important;
+  /* Card Variant: Glass */
+  --s-text-on-glass: #ffffff;
+  --c-card-glass-bg: #000000;
+  --c-card-glass-border-image: #ffffff;
 
-  /* Links weiß */
-  --link-color: #ffffff !important;
-  --link-hover-color: #ffffff !important;
-  --link-visited-color: #ffffff !important;
+  /* Card Variant: Aurora */
+  --c-card-aurora-bg: #000000;
+  --c-card-aurora-bg-hover: rgba(0, 0, 0, 0.2);
+
+  /* Links */
+  --link-color: #ffffff;
+  --link-hover-color: #ffffff;
+  --s-text-link-visited: #ffffff;
 }
 
-/* =================================
-   CONTRAST UI ADJUSTMENTS
-   ================================= */
+/* Body Styles - Dark Mode */
+[data-theme="dark"].a11y-contrast-maximum body,
+.a11y-theme-dark.a11y-contrast-maximum body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
 
-/* Maximum Contrast - UI Elements */
-.a11y-contrast-maximum {
-  /* Alle Borders sichtbar */
-  *,
-  *::before,
-  *::after {
-    border-color: currentColor !important;
-  }
+/* ============================================
+   BUTTONS - LIGHT MODE
+   ============================================ */
 
-  /* Buttons */
-  button,
-  .button,
-  .btn {
-    background: transparent !important;
-    color: currentColor !important;
-    border: var(--a11y-contrast-border-width) solid currentColor !important;
-    text-decoration: underline !important;
-  }
+/* Standard Buttons */
+.a11y-contrast-maximum button,
+.a11y-contrast-maximum .button,
+.a11y-contrast-maximum .btn {
+  background: #ffffff !important;
+  color: currentColor !important;
+  border: 3px solid currentColor !important;
+  text-decoration: underline !important;
+}
 
-  button:hover,
-  .button:hover,
-  .btn:hover {
-    background: currentColor !important;
-    color: var(--p-neutral-50) !important;
-  }
+.a11y-contrast-maximum button:hover,
+.a11y-contrast-maximum .button:hover,
+.a11y-contrast-maximum .btn:hover {
+  background: #cecece !important;
+  color: #000000 !important;
+}
 
-  /* Links immer unterstrichen */
-  a {
-    text-decoration: underline !important;
-    text-decoration-thickness: 2px !important;
-  }
+.a11y-contrast-maximum button:active,
+.a11y-contrast-maximum .button:active,
+.a11y-contrast-maximum .btn:active {
+  background: rgba(0, 0, 0, 0.2) !important;
+  color: #000000 !important;
+}
 
-  /* Bilder mit Border */
-  img {
-    border: 1px solid currentColor;
-  }
+/* Toggle Buttons */
+.a11y-contrast-maximum .button_toggle {
+  color: #000000 !important;
+}
 
-  /* Keine dekorativen Elemente */
-  *::before,
-  *::after {
-    content: none !important;
-  }
+.a11y-contrast-maximum
+  .button_toggle:hover:not(:disabled):not([aria-disabled="true"]):not(
+    [aria-pressed="true"]
+  ) {
+  background-color: #cecece !important;
+  border-color: #000000 !important;
+}
 
-  /* Ausnahmen für wichtige Icons */
-  .icon::before,
-  .icon::after,
-  [class*="icon-"]::before,
-  [class*="icon-"]::after,
-  .button__icon::before,
-  .button__icon::after {
-    content: "" !important;
-  }
+.a11y-contrast-maximum .button_toggle[aria-pressed="true"],
+.a11y-contrast-maximum .button_toggle.is-active {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+  border-width: 4px !important;
+}
+
+.a11y-contrast-maximum .button_toggle[aria-pressed="true"] .button__icon,
+.a11y-contrast-maximum .button_toggle.is-active .button_icon {
+  transform: none !important;
+}
+
+.a11y-contrast-maximum .button_toggle[aria-pressed="true"]:hover:not(:disabled),
+.a11y-contrast-maximum .button_toggle.is-active:hover:not(:disabled) {
+  border-width: 4px !important;
+  outline: 3px solid #000000 !important;
+  outline-offset: 3px !important;
+}
+
+.a11y-contrast-maximum .button_toggle:active:not(:disabled) {
+  transform: none !important;
+}
+
+.a11y-contrast-maximum .button_toggle:focus-visible {
+  outline: 4px solid #000000 !important;
+  outline-offset: 3px !important;
+}
+
+.a11y-contrast-maximum .button_toggle:disabled,
+.a11y-contrast-maximum .button_toggle[aria-disabled="true"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  border-style: dashed !important;
+  opacity: 1 !important;
+  cursor: not-allowed;
+  text-decoration: line-through !important;
+}
+
+/* ============================================
+   BUTTONS - DARK MODE
+   ============================================ */
+
+/* Standard Buttons */
+[data-theme="dark"].a11y-contrast-maximum button,
+[data-theme="dark"].a11y-contrast-maximum .button,
+[data-theme="dark"].a11y-contrast-maximum .btn,
+.a11y-theme-dark.a11y-contrast-maximum button,
+.a11y-theme-dark.a11y-contrast-maximum .button,
+.a11y-theme-dark.a11y-contrast-maximum .btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum button:hover,
+[data-theme="dark"].a11y-contrast-maximum .button:hover,
+[data-theme="dark"].a11y-contrast-maximum .btn:hover,
+[data-theme="dark"].a11y-contrast-maximum button:active,
+[data-theme="dark"].a11y-contrast-maximum .button:active,
+[data-theme="dark"].a11y-contrast-maximum .btn:active,
+.a11y-theme-dark.a11y-contrast-maximum button:hover,
+.a11y-theme-dark.a11y-contrast-maximum .button:hover,
+.a11y-theme-dark.a11y-contrast-maximum .btn:hover,
+.a11y-theme-dark.a11y-contrast-maximum button:active,
+.a11y-theme-dark.a11y-contrast-maximum .button:active,
+.a11y-theme-dark.a11y-contrast-maximum .btn:active {
+  background: #cecece !important;
+  color: #000000 !important;
+}
+
+/* Toggle Buttons */
+[data-theme="dark"].a11y-contrast-maximum .button_toggle,
+.a11y-theme-dark.a11y-contrast-maximum .button_toggle {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum
+  .button_toggle:hover:not(:disabled):not([aria-disabled="true"]):not(
+    [aria-pressed="true"]
+  ),
+.a11y-theme-dark.a11y-contrast-maximum
+  .button_toggle:hover:not(:disabled):not([aria-disabled="true"]):not(
+    [aria-pressed="true"]
+  ) {
+  background: #cecece !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum .button_toggle[aria-pressed="true"],
+[data-theme="dark"].a11y-contrast-maximum .button_toggle.is-active,
+.a11y-theme-dark.a11y-contrast-maximum .button_toggle[aria-pressed="true"],
+.a11y-theme-dark.a11y-contrast-maximum .button_toggle.is-active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  border-width: 4px !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum
+  .button_toggle[aria-pressed="true"]:hover:not(:disabled),
+[data-theme="dark"].a11y-contrast-maximum
+  .button_toggle.is-active:hover:not(:disabled),
+.a11y-theme-dark.a11y-contrast-maximum
+  .button_toggle[aria-pressed="true"]:hover:not(:disabled),
+.a11y-theme-dark.a11y-contrast-maximum
+  .button_toggle.is-active:hover:not(:disabled) {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  border-width: 4px !important;
+  outline: 3px solid #ffffff !important;
+  outline-offset: 3px !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum .button_toggle:focus-visible,
+.a11y-theme-dark.a11y-contrast-maximum .button_toggle:focus-visible {
+  outline: 4px solid #ffffff !important;
+  outline-offset: 3px !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum .button_toggle:disabled,
+[data-theme="dark"].a11y-contrast-maximum .button_toggle[aria-disabled="true"],
+.a11y-theme-dark.a11y-contrast-maximum .button_toggle:disabled,
+.a11y-theme-dark.a11y-contrast-maximum .button_toggle[aria-disabled="true"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  border-style: dashed !important;
+  opacity: 1 !important;
+}
+
+/* ============================================
+   MODULE TABS - LIGHT MODE
+   ============================================ */
+
+.a11y-contrast-maximum .c-module-tabs__tab {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 3px solid currentColor !important;
+  text-decoration: underline !important;
+}
+
+.a11y-contrast-maximum
+  .c-module-tabs__tab:hover:not(:disabled):not([aria-disabled="true"]):not(
+    [aria-selected="true"]
+  ) {
+  background-color: #cecece !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.a11y-contrast-maximum .c-module-tabs__tab[aria-selected="true"],
+.a11y-contrast-maximum .c-module-tabs__tab.is-active {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+  border-width: 4px !important;
+}
+
+.a11y-contrast-maximum
+  .c-module-tabs__tab[aria-selected="true"]:hover:not(:disabled),
+.a11y-contrast-maximum .c-module-tabs__tab.is-active:hover:not(:disabled) {
+  border-width: 4px !important;
+  outline: 3px solid #000000 !important;
+  outline-offset: 3px !important;
+}
+
+.a11y-contrast-maximum .c-module-tabs__tab:disabled,
+.a11y-contrast-maximum .c-module-tabs__tab[aria-disabled="true"] {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+  border-style: dashed !important;
+  opacity: 1 !important;
+  cursor: not-allowed;
+  text-decoration: line-through !important;
+}
+
+/* ============================================
+   MODULE TABS - DARK MODE
+   ============================================ */
+
+[data-theme="dark"].a11y-contrast-maximum .c-module-tabs__tab,
+.a11y-theme-dark.a11y-contrast-maximum .c-module-tabs__tab {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 3px solid currentColor !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum
+  .c-module-tabs__tab:hover:not(:disabled):not([aria-disabled="true"]):not(
+    [aria-selected="true"]
+  ),
+.a11y-theme-dark.a11y-contrast-maximum
+  .c-module-tabs__tab:hover:not(:disabled):not([aria-disabled="true"]):not(
+    [aria-selected="true"]
+  ) {
+  background-color: #cecece !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum
+  .c-module-tabs__tab[aria-selected="true"],
+[data-theme="dark"].a11y-contrast-maximum .c-module-tabs__tab.is-active,
+.a11y-theme-dark.a11y-contrast-maximum
+  .c-module-tabs__tab[aria-selected="true"],
+.a11y-theme-dark.a11y-contrast-maximum .c-module-tabs__tab.is-active {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  border-width: 4px !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum
+  .c-module-tabs__tab[aria-selected="true"]:hover:not(:disabled),
+[data-theme="dark"].a11y-contrast-maximum
+  .c-module-tabs__tab.is-active:hover:not(:disabled),
+.a11y-theme-dark.a11y-contrast-maximum
+  .c-module-tabs__tab[aria-selected="true"]:hover:not(:disabled),
+.a11y-theme-dark.a11y-contrast-maximum
+  .c-module-tabs__tab.is-active:hover:not(:disabled) {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  border-width: 4px !important;
+  outline: 3px solid #ffffff !important;
+  outline-offset: 3px !important;
+}
+
+[data-theme="dark"].a11y-contrast-maximum .c-module-tabs__tab:disabled,
+[data-theme="dark"].a11y-contrast-maximum
+  .c-module-tabs__tab[aria-disabled="true"],
+.a11y-theme-dark.a11y-contrast-maximum .c-module-tabs__tab:disabled,
+.a11y-theme-dark.a11y-contrast-maximum
+  .c-module-tabs__tab[aria-disabled="true"] {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  border-style: dashed !important;
+  opacity: 1 !important;
+  cursor: not-allowed;
+  text-decoration: line-through !important;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
+
+.a11y-contrast-maximum a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+}
+
+/* ============================================
+   BORDERS
+   ============================================ */
+
+.a11y-contrast-maximum *,
+.a11y-contrast-maximum *::before,
+.a11y-contrast-maximum *::after {
+  border-color: currentColor !important;
+}
+
+/* ============================================
+   PSEUDO-ELEMENTE
+   ============================================ */
+
+/* Dekorative Pseudo-Elemente entfernen */
+.a11y-contrast-maximum *::before,
+.a11y-contrast-maximum *::after {
+  content: none !important;
+}
+
+/* Wichtige Pseudo-Elemente wiederherstellen */
+.a11y-contrast-maximum .icon::before,
+.a11y-contrast-maximum .icon::after,
+.a11y-contrast-maximum [class*="icon-"]::before,
+.a11y-contrast-maximum [class*="icon-"]::after,
+.a11y-contrast-maximum .button__icon::before,
+.a11y-contrast-maximum .button__icon::after,
+.a11y-contrast-maximum .site-header::before,
+.a11y-contrast-maximum .site-header::after,
+.a11y-contrast-maximum .card_aurora::before,
+.a11y-contrast-maximum .card_aurora::after,
+.a11y-contrast-maximum .card_glass::before,
+.a11y-contrast-maximum .card_glass::after,
+.a11y-contrast-maximum .list-item-project::before,
+.a11y-contrast-maximum .card-carousell-indicator-dot::before,
+.a11y-contrast-maximum input:checked + .toggle-slider::before,
+.a11y-contrast-maximum .toggle-slider::before,
+.a11y-contrast-maximum .toggle-slider::after,
+.a11y-contrast-maximum .list__item::before {
+  content: "" !important;
+}
+
+/* ============================================
+   FOCUS STATES
+   ============================================ */
+
+.a11y-contrast-maximum *:focus-visible {
+  outline: 4px solid currentColor !important;
+  outline-offset: 2px !important;
 }

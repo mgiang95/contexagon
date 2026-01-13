@@ -8,35 +8,7 @@
   --input-border-color-focus: var(--text-color);
   --input-border-width: 1.5px solid;
 }
-/*
-input,
-textarea {
-	border: var(--input-border-width) var(--input-border-color) !important;
-    border-radius: var(--control-radius) !important;
-    color: var(--text-color) !important;
-    font-size: var(--font-size-p) !important;
-    line-height: var(--line-height-p) !important;
-    font-weight: 400 !important;
-    font-family: "Roboto",  Arial, sans-serif !important;
-    padding: 0.75rem 0.5rem !important;
-	margin-top: 0.5rem !important;
-	transition: border var(--transition-duration-fast) !important;
-}
-*/
 
-/*
-input:hover, textarea:hover {
-    border: var(--input-border-width) var(--input-border-color-hover) !important;
-}
-
-input:active,
-input:focus, 
-textarea:active,
-textarea:focus {
-	background-color: transparent !important;
-    border: var(--input-border-width) var(--input-border-color-focus) !important;
-}
-*/
 .ff-field_container,
 .ff-el-group {
   margin-bottom: 2rem !important;
@@ -76,29 +48,45 @@ textarea:focus {
   --_shadow: var(--control-shadow);
 
   /* General Styling */
-  padding: var(--control-padding-block) var(--control-padding-inline);
-  border-radius: var(--control-radius);
-  font-size: var(--control-font-size);
-  line-height: var(--control-line-height);
+  padding: var(--c-button-padding-block) var(--c-button-padding-inline) !important;
+  border-radius: var(--c-button-radius);
+  font-size: var(--c-button-font-size);
+  line-height: var(--c-button-line-height);
   font-weight: 600 !important;
 
-  transition: all var(--transition-duration-fast) var(--transition-timing);
-  -webkit-transition: all var(--transition-duration-fast)
-    var(--transition-timing);
+  transition: var(--c-button-transition);
+  -webkit-transition: var(--c-button-transition);
 
   /* Accessible Properties for Styling */
-  background-color: var(--primary) !important;
-  color: var(--text-on-primary) !important;
-  border: var(--_border) !important;
-  box-shadow: var(--_shadow) !important;
+  background-color: var(--c-button-primary-bg) !important;
+  color: var(--c-button-primary-text) !important;
+  border: var(--c-button-primary-border) !important;
+  box-shadow: var(--c-button-primary-shadow) !important;
 
   &:hover {
-    background-color: color-mix(in oklch, var(--primary), black 5%) !important;
-    color: var(--text-on-primary) !important;
+    background-color: color-mix(
+      in oklch,
+      var(--c-button-primary-bg),
+      black 5%
+    ) !important;
+    color: var(--c-button-primary-text) !important;
   }
   &:active,
   &:focus {
-    background-color: color-mix(in oklch, var(--primary), black 10%) !important;
-    color: var(--text-on-primary) !important;
+    background-color: color-mix(
+      in oklch,
+      var(--c-button-primary-bg),
+      black 10%
+    ) !important;
+    color: var(--c-button-primary-text) !important;
   }
+}
+
+.ff-el-form-control {
+  color: var(--s-text-primary) !important;
+}
+
+.ff-el-form-control:focus {
+  background-color: unset !important;
+  border-color: var(--s-interactive-primary) !important;
 }

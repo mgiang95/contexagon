@@ -1,7 +1,6 @@
 /* =================================
    ACCESSIBILITY TRIGGER BUTTON
    ================================= */
-
 /* ---------- Tokens Definitions ---------- */
 :root {
   /* A11y Trigger Component Tokens */
@@ -66,8 +65,8 @@
 }
 
 /* =================================
-   A11Y MODAL OVERLAY & CONTAINER
-   ================================= */
+	   A11Y MODAL OVERLAY & CONTAINER
+	   ================================= */
 
 .a11y-modal-overlay {
   position: fixed;
@@ -136,8 +135,8 @@
 }
 
 /* =================================
-   A11Y MODAL HEADER
-   ================================= */
+	   A11Y MODAL HEADER
+	   ================================= */
 
 .a11y-modal-header {
   display: flex;
@@ -189,8 +188,8 @@
 }
 
 /* =================================
-   A11Y MODAL CONTENT
-   ================================= */
+	   A11Y MODAL CONTENT
+	   ================================= */
 
 .a11y-modal-content {
   flex: 1;
@@ -199,8 +198,8 @@
 }
 
 /* =================================
-   A11Y MODAL FOOTER
-   ================================= */
+	   A11Y MODAL FOOTER
+	   ================================= */
 
 .a11y-modal-footer {
   padding: var(--p-spacing-m);
@@ -218,8 +217,8 @@
 }
 
 /* =================================
-   A11Y CONTROLS IN MODAL
-   ================================= */
+	   A11Y CONTROLS IN MODAL
+	   ================================= */
 
 .a11y-section {
   display: flex;
@@ -258,15 +257,15 @@
   justify-content: center;
 }
 /*
-.a11y-reset-button:hover {
-  background: var(--s-interactive-destructive-hover);
-}
+	.a11y-reset-button:hover {
+	  background: var(--s-interactive-destructive-hover);
+	}
 
-.a11y-reset-button:focus-visible {
-  outline: var(--s-focus-ring-width) solid var(--s-focus-ring-destructive);
-  outline-offset: var(--s-focus-ring-offset);
-}
-*/
+	.a11y-reset-button:focus-visible {
+	  outline: var(--s-focus-ring-width) solid var(--s-focus-ring-destructive);
+	  outline-offset: var(--s-focus-ring-offset);
+	}
+	*/
 
 /* Screen Reader Only */
 .sr-only {
@@ -300,8 +299,8 @@
 }
 
 /* =================================
-   HUE SLIDER STYLING
-   ================================= */
+	   HUE SLIDER STYLING
+	   ================================= */
 
 .hue-slider-container {
   display: flex;
@@ -484,8 +483,8 @@
 }
 
 /* =================================
-   THEME SWITCH STYLING
-   ================================= */
+	   THEME SWITCH STYLING
+	   ================================= */
 
 .theme-switch-container {
   display: flex;

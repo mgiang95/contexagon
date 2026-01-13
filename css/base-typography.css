@@ -2,83 +2,6 @@
    BASE/TYPOGRAPHY
    Element Styles for Typography + Font Scaling
    ================================= */
-
-/* =================================
-   WordPress content overrides
-   ================================= */
-
-.entry-content h1:first-child,
-.entry-content .h1:first-child,
-.post-content h1:first-child,
-.post-content .h1:first-child {
-  margin-top: 0 !important;
-}
-
-/* GeneratePress Header-Integration */
-.site-header .display,
-.main-title .display {
-  margin-bottom: 0 !important;
-}
-
-/* Gutenberg Editor Support */
-.editor-styles-wrapper {
-  font-family: var(--p-font-family-base) !important;
-}
-
-.editor-styles-wrapper .wp-block {
-  max-width: none !important;
-}
-
-/* GeneratePress Navigation Override */
-.main-navigation a {
-  font-family: var(--p-font-family-base) !important;
-  font-weight: var(--s-font-weight-body) !important;
-  font-size: calc(
-    var(--s-font-size-body) * var(--_font-scale-multiplier)
-  ) !important;
-}
-
-/* WordPress Widgets Typography */
-.widget h1,
-.widget h2,
-.widget h3,
-.widget h4,
-.widget h5,
-.widget h6 {
-  font-family: var(--p-font-family-heading) !important;
-  margin-bottom: var(--p-spacing-s) !important;
-}
-
-.widget p {
-  font-size: calc(
-    var(--s-font-size-small) * var(--_font-scale-multiplier)
-  ) !important;
-  line-height: var(--s-line-height-body) !important;
-}
-
-/* WordPress Comments */
-.comment-content p {
-  font-size: calc(
-    var(--s-font-size-body) * var(--_font-scale-multiplier)
-  ) !important;
-  line-height: var(--s-line-height-body) !important;
-}
-
-/* Breadcrumbs Override */
-.breadcrumb-trail,
-.rank-math-breadcrumb {
-  font-size: calc(
-    var(--s-font-size-small) * var(--_font-scale-multiplier)
-  ) !important;
-  line-height: var(--s-line-height-small) !important;
-}
-
-/* Reset p margins */
-p {
-  padding: 0;
-  margin: 0;
-}
-
 /* Font Scale Multiplier für A11y */
 :root {
   --_font-scale-multiplier: 1; /* Default */
@@ -111,7 +34,7 @@ body {
   font-weight: var(--s-font-weight-display) !important;
   line-height: var(--s-line-height-display) !important;
   letter-spacing: var(--s-letter-spacing-display) !important;
-  margin: 0 0 var(--p-spacing-xl) 0 !important;
+  margin: 0 0 var(--p-spacing-xl) 0;
 }
 
 /* Headings mit strategischem !important + Font Scaling */
@@ -124,7 +47,7 @@ h1,
   font-weight: var(--s-font-weight-heading) !important;
   line-height: var(--s-line-height-heading) !important;
   letter-spacing: var(--s-letter-spacing-heading) !important;
-  margin: 0 0 var(--p-spacing-l) 0 !important;
+  margin: 0 0 var(--p-spacing-l) 0;
 }
 
 h2,
@@ -136,7 +59,7 @@ h2,
   font-weight: var(--s-font-weight-heading) !important;
   line-height: var(--s-line-height-heading) !important;
   letter-spacing: var(--s-letter-spacing-heading) !important;
-  margin: 0 0 var(--p-spacing-m) 0 !important;
+  margin: 0 0 var(--p-spacing-m) 0;
 }
 
 h3,
@@ -148,7 +71,7 @@ h3,
   font-weight: var(--s-font-weight-heading) !important;
   line-height: var(--s-line-height-heading) !important;
   letter-spacing: var(--s-letter-spacing-heading) !important;
-  margin: 0 0 var(--p-spacing-m) 0 !important;
+  margin: 0 0 var(--p-spacing-m) 0;
 }
 
 h4,
@@ -160,7 +83,7 @@ h4,
   font-weight: var(--s-font-weight-subheading) !important;
   line-height: var(--s-line-height-subheading) !important;
   letter-spacing: var(--s-letter-spacing-heading) !important;
-  margin: 0 0 var(--p-spacing-s) 0 !important;
+  margin: 0 0 var(--p-spacing-s) 0;
 }
 
 h5,
@@ -172,7 +95,7 @@ h5,
   font-weight: var(--s-font-weight-subheading) !important;
   line-height: var(--s-line-height-subheading) !important;
   letter-spacing: var(--s-letter-spacing-heading) !important;
-  margin: 0 0 var(--p-spacing-s) 0 !important;
+  margin: 0 0 var(--p-spacing-s) 0;
 }
 
 h6,
@@ -184,7 +107,7 @@ h6,
   font-weight: var(--s-font-weight-subheading) !important;
   line-height: var(--s-line-height-subheading) !important;
   letter-spacing: var(--s-letter-spacing-heading) !important;
-  margin: 0 0 var(--p-spacing-xs) 0 !important;
+  margin: 0 0 var(--p-spacing-xs) 0;
 }
 
 /* Body Text Varianten mit !important + Scaling */
@@ -260,8 +183,8 @@ p:last-child,
 }
 
 /* ============================================
-   Link Styles - Accessibility & Print
-   ============================================ */
+	   Link Styles - Accessibility & Print
+	   ============================================ */
 
 /* Base Link Styling */
 a {
@@ -287,6 +210,11 @@ a {
   cursor: pointer;
 }
 
+/* Visited */
+a:visited {
+  color: var(--s-text-link-visited);
+}
+
 /* Hover State */
 a:hover {
   color: var(--s-text-link-hover);
@@ -300,32 +228,24 @@ a:active {
   text-decoration-thickness: 0.125em;
 }
 
-/* Visited */
-a:visited {
-  color: var(--s-text-link-visited);
-}
-
 /* Focus */
 a:focus {
-  outline: none !important;
+  outline: none;
 }
 
 a:focus-visible {
-  outline: 3px solid var(--s-focus-ring, var(--p-accent-500)) !important;
-  outline-offset: 4px !important;
-  border-radius: 2px !important;
-  text-decoration-thickness: 0.125em !important;
-  color: var(--s-text-link-hover) !important;
-  background-color: var(
-    --s-focus-ring-alpha,
-    rgba(0, 102, 204, 0.1)
-  ) !important;
-  box-shadow: 0 0 0 4px var(--s-focus-ring-alpha, rgba(0, 102, 204, 0.1)) !important;
+  outline: 3px solid var(--s-focus-ring, var(--p-accent-500));
+  outline-offset: 4px;
+  border-radius: 2px;
+  text-decoration-thickness: 0.125em;
+  color: var(--s-text-link-hover);
+  background-color: var(--s-focus-ring-alpha, rgba(0, 102, 204, 0.1));
+  box-shadow: 0 0 0 4px var(--s-focus-ring-alpha, rgba(0, 102, 204, 0.1));
 }
 
 /* ============================================
-   Link Variants
-   ============================================ */
+	   Link Variants
+	   ============================================ */
 
 .link-secondary,
 a.link-secondary {
@@ -379,8 +299,8 @@ a.btn {
 }
 
 /* ============================================
-   High Contrast Mode
-   ============================================ */
+	   High Contrast Mode
+	   ============================================ */
 @media (prefers-contrast: high) {
   a {
     text-decoration-thickness: 0.125em !important;
@@ -393,8 +313,8 @@ a.btn {
 }
 
 /* ============================================
-   Reduced Motion
-   ============================================ */
+	   Reduced Motion
+	   ============================================ */
 @media (prefers-reduced-motion: reduce) {
   a {
     transition: none !important;
@@ -402,8 +322,8 @@ a.btn {
 }
 
 /* ============================================
-   Print Styles
-   ============================================ */
+	   Print Styles
+	   ============================================ */
 @media print {
   a {
     text-decoration: underline !important;

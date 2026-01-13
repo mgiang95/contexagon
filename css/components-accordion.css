@@ -1,0 +1,25 @@
+.wp-block-accordion-panel {
+  margin-bottom: var(--p-spacing-m) !important;
+}
+
+.wp-block-accordion-item {
+  border-bottom: 1px solid var(--s-border-neutral-subtle);
+}
+
+.wp-block-accordion-item:last-child {
+  border-bottom: none;
+}
+
+.wp-block-accordion-heading {
+  font-family: var(--p-font-family-base) !important;
+  font-size: calc(
+    var(--s-font-size-h4) * var(--_font-scale-multiplier)
+  ) !important;
+  font-weight: var(--s-font-weight-subheading) !important;
+  margin-top: var(--p-spacing-s);
+  margin-bottom: var(--p-spacing-xs);
+}
+
+.wp-block-accordion-headin:first-child {
+  margin-top: none !important;
+}

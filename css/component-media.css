@@ -1,0 +1,9 @@
+.video-container {
+  overflow: clip;
+  border-radius: var(--p-radius-xl);
+  border: var(--s-glass-border-width) solid var(--s-glass-border-image);
+}
+
+.image-container {
+  border-radius: var(--p-radius-l);
+}

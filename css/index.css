@@ -1,0 +1,47 @@
+/* css/index.css */
+@layer reset, primitives, semantics, base, components, pages, utilities, overrides;
+
+/* Reihenfolge der Imports */
+
+/*---------- RESET ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1566.css");
+
+/*---------- PRIMITIVES ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/17.css"); /* Foundations */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1565.css"); /* Color */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1079.css"); /* Spacing */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1053.css"); /* Typography */
+
+/*---------- SEMANTICS ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/736.css"); /* Global UI */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1054.css"); /* Typography */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1201.css"); /* Glass FX */
+
+/*---------- BASE ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1059.css"); /* Typography */
+
+/*---------- COMPONENTS ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/146.css"); /* Section */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/835.css"); /* Icon */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/417.css"); /* List */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/131.css"); /* Button */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/137.css"); /* Card */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/56.css"); /* Navbar */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/527.css"); /* Footer */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1233.css"); /* Scrollbar */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/626.css"); /* Form */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/509.css"); /* Caroussell */
+
+/*---------- PAGES ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/546.css"); /* Subpage */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/80.css"); /* Landingpage */
+
+/*---------- UTILITY ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1080.css"); /* Spacing */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1176.css"); /* CursorFX */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1055.css"); /* A11y Controls */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1110.css"); /* Font Size */
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1109.css"); /* Density */
+
+/*---------- OVERRIDES ----------*/
+@import url("https://contexagon.com/wp-content/uploads/custom-css-js/1103.css"); /* Contrast */

@@ -1,0 +1,136 @@
+:root {
+  --c-banner-bg: var(--p-accent-400);
+  --c-banner-text: var(--s-text-on-overlay);
+}
+
+/* Grundlayout für den Banner */
+.c-announcement-banner {
+  background-color: var(--c-banner-bg);
+  color: var(--c-banner-text);
+  position: fixed;
+  inset-inline: 0; /* links + rechts = 0 */
+  inset-block-end: 0; /* bottom: 0 */
+  z-index: 9999;
+  width: 100%;
+}
+
+.c-announcement-banner .s {
+  margin-bottom: 0;
+}
+
+/* Innenlayout */
+.c-announcement-banner__inner {
+  display: flex;
+  align-items: center;
+  padding-block: var(--p-spacing-3xs, 0.5rem);
+  padding-inline: var(--p-spacing-xl, 1.5rem);
+  gap: var(--p-spacing-m, 0.75rem);
+}
+
+/* Textbereich – wird mittig zentriert */
+.c-announcement-banner__text {
+  margin-inline: auto; /* schiebt den Block in die Mitte */
+  text-align: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
+  margin: 0;
+}
+
+.c-announcement-banner__message {
+  word-break: break-word;
+}
+
+/* Close-Button (X) rechts */
+.c-announcement-banner__close {
+  border: none;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  line-height: 1;
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px; /* volle Rundung */
+}
+
+/* Fokus-Stil – am besten an deinen globalen Fokus anlehnen */
+.c-announcement-banner__close:focus-visible {
+  outline: 2px solid var(--p-focus-ring, #ffffff);
+  outline-offset: 2px;
+}
+
+/* Mobile-Anpassungen */
+@media (max-width: 600px) {
+  .c-announcement-banner__inner {
+    align-items: flex-start;
+  }
+
+  .c-announcement-banner__close {
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Optional: Platz für Cookie-Button am linken Rand lassen (z.B. Desktop) */
+@media (min-width: 768px) {
+  .c-announcement-banner {
+    padding-left: 4rem; /* an Breite deines Cookie-Buttons anpassen */
+  }
+}
+
+.c-announcement-banner__message {
+  /* nichts Besonderes, aber trennbar */
+  word-break: break-word;
+}
+
+/* Close-Button */
+.c-announcement-banner__close {
+  margin-left: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  line-height: 1;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Klickfläche etwas vergrößern */
+  width: 2rem;
+  height: 2rem;
+
+  border-radius: var(--radius-full, 999px);
+}
+
+/* Fokus gut sichtbar (am besten dein globaler Fokus-Style) */
+.c-announcement-banner__close:focus-visible {
+  outline: 2px solid var(--c-banner-text);
+  outline-offset: 2px;
+}
+
+/* Mobile: Banner stackt */
+@media (max-width: 600px) {
+  .c-announcement-banner__inner {
+    align-items: flex-start;
+  }
+
+  .c-announcement-banner__close {
+    margin-left: 0;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .c-announcement-banner__inner {
+    flex-direction: row;
+  }
+}

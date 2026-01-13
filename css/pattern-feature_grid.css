@@ -1,0 +1,246 @@
+/* ============================================
+   Feature Grid – Component Tokens
+   ============================================ */
+
+:root {
+  /* Layout */
+  --c-feature-grid-gap: var(--p-spacing-xs);
+
+  --c-feature-grid-base-cols: 2;
+  --c-feature-grid-cols-3: 3;
+  --c-feature-grid-cols-4: 4;
+  --c-feature-grid-cols-5: 5;
+
+  --c-feature-grid-card-aspect-ratio: 1 / 1;
+  --c-feature-grid-card-svg-width: 90%;
+  --c-feature-grid-card-svg-translate-y: 0.4rem;
+  --c-feature-grid-card-label-min-height: 1.3em;
+
+  /* States */
+  --c-feature-grid-card-muted-opacity: 0.5;
+  --c-feature-grid-card-muted-scale: 0.9;
+  --c-feature-grid-card-dimmed-opacity: 0.5;
+
+  /* Hover */
+  --c-feature-grid-card-hover-color: var(--s-text-primary);
+  --c-feature-grid-card-hover-font-weight: var(--p-font-weight-semibold);
+  --c-feature-grid-card-hover-shadow: var(--s-glass-shadow-hover);
+
+  /* Motion / Animation */
+  --c-feature-grid-transition-duration: var(--p-transition-duration-fast);
+  --c-feature-grid-transition-timing: var(--p-transition-timing);
+
+  /* JS-Rotation (werden im Script ausgelesen) */
+  --c-feature-grid-rotation-interval: 6000; /* ms */
+  --c-feature-grid-min-active: 4;
+  --c-feature-grid-max-active: 6;
+}
+
+/* ============================================
+   Feature Grid – Layout
+   ============================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.feature-grid-container {
+  container-type: inline-size;
+  container-name: feature-grid;
+}
+
+.feature-grid {
+  display: grid;
+  gap: var(--c-feature-grid-gap);
+  grid-template-columns: repeat(
+    var(--c-feature-grid-base-cols),
+    minmax(0, 1fr)
+  );
+  grid-auto-rows: auto;
+
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.feature-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  aspect-ratio: var(--c-feature-grid-card-aspect-ratio);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  transition: opacity var(--c-feature-grid-transition-duration)
+      var(--c-feature-grid-transition-timing),
+    transform var(--c-feature-grid-transition-duration)
+      var(--c-feature-grid-transition-timing),
+    color var(--c-feature-grid-transition-duration)
+      var(--c-feature-grid-transition-timing),
+    box-shadow var(--c-feature-grid-transition-duration)
+      var(--c-feature-grid-transition-timing);
+}
+
+/* Label */
+
+.feature-card p {
+  opacity: 1;
+  color: var(--s-text-secondary);
+  min-height: var(--c-feature-grid-card-label-min-height);
+  transition: opacity var(--c-feature-grid-transition-duration)
+    var(--c-feature-grid-transition-timing);
+}
+
+/* Icon */
+
+.feature-card svg {
+  width: var(--c-feature-grid-card-svg-width);
+  height: auto;
+  flex-shrink: 0;
+  transform: translate(0, var(--c-feature-grid-card-svg-translate-y));
+}
+
+/* ============================================
+   Feature Grid – States
+   ============================================ */
+
+/* Hover */
+
+.feature-card:hover {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  color: var(--c-feature-grid-card-hover-color) !important;
+  font-weight: var(--c-feature-grid-card-hover-font-weight);
+  box-shadow: var(--c-feature-grid-card-hover-shadow);
+}
+
+.feature-card:hover p {
+  opacity: 1 !important;
+}
+
+/* Aktive Karte */
+
+.feature-card.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Inaktive Karte – grau, Icon & Text “muted” */
+
+.feature-card.is-muted {
+  opacity: var(--c-feature-grid-card-muted-opacity);
+  transform: scale(var(--c-feature-grid-card-muted-scale));
+}
+
+.feature-card.is-muted p {
+  opacity: 0;
+}
+
+/* Optional: Zwischenzustand */
+
+.feature-card:not(.is-active).is-dimmed {
+  opacity: var(--c-feature-grid-card-dimmed-opacity);
+}
+
+/* ============================================
+   Feature Grid – Container Queries
+   ============================================ */
+
+/* ≥ 3 Spalten */
+@container feature-grid (min-width: 20em) {
+  .feature-grid {
+    grid-template-columns: repeat(var(--c-feature-grid-cols-3), minmax(0, 1fr));
+  }
+}
+
+/* ≥ 4 Spalten */
+@container feature-grid (min-width: 30em) {
+  .feature-grid {
+    grid-template-columns: repeat(var(--c-feature-grid-cols-4), minmax(0, 1fr));
+  }
+}
+
+/* ≥ 5 Spalten + “Pulsar”-Anordnung */
+@container feature-grid (min-width: 45em) {
+  .feature-grid {
+    grid-template-columns: repeat(var(--c-feature-grid-cols-5), minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+  }
+
+  .feature-card:nth-child(1) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .feature-card:nth-child(2) {
+    grid-column: 5;
+    grid-row: 1;
+  }
+  .feature-card:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .feature-card:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .feature-card:nth-child(5) {
+    grid-column: 4;
+    grid-row: 2;
+  }
+  .feature-card:nth-child(6) {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .feature-card:nth-child(7) {
+    grid-column: 5;
+    grid-row: 3;
+  }
+  .feature-card:nth-child(8) {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .feature-card:nth-child(9) {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .feature-card:nth-child(10) {
+    grid-column: 4;
+    grid-row: 4;
+  }
+  .feature-card:nth-child(11) {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  .feature-card:nth-child(12) {
+    grid-column: 5;
+    grid-row: 5;
+  }
+}
+
+/* ============================================
+   Feature Grid – Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .feature-card p {
+    transition: none;
+  }
+
+  .feature-card.is-muted {
+    transform: none;
+  }
+}
