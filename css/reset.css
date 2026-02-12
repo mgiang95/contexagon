@@ -4,6 +4,10 @@
    WordPress content overrides
    ================================= */
 
+  .entry-meta {
+    display: none;
+  }
+
   .entry-content h1:first-child,
   .entry-content .h1:first-child,
   .post-content h1:first-child,

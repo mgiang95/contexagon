@@ -453,8 +453,19 @@
 .a11y-contrast-maximum input:checked + .toggle-slider::before,
 .a11y-contrast-maximum .toggle-slider::before,
 .a11y-contrast-maximum .toggle-slider::after,
-.a11y-contrast-maximum .list__item::before {
+.a11y-contrast-maximum .list__item::before,
+.a11y-contrast-maximum .cky-btn-revisit::before {
   content: "" !important;
+}
+
+/* Cookie Button Max. Contrast */
+.a11y-contrast-maximum .cky-btn-revisit {
+  background: unset !important;
+  border: unset !important;
+}
+.a11y-contrast-maximum .cky-btn-revisit-wrapper {
+  background: #ffffff !important;
+  border: 3px solid currentColor !important;
 }
 
 /* ============================================

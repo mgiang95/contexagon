@@ -1,0 +1,255 @@
+/* Custom Styling Cookie Button, da Paid version */
+
+/* Cookie Button */
+.cky-revisit-bottom-left {
+  bottom: var(--p-spacing-m) !important;
+  left: var(--p-spacing-m) !important;
+}
+
+.cky-btn-revisit-wrapper {
+  background: var(--c-button-primary-bg) !important;
+  box-shadow: var(--p-shadow-s) !important;
+  transition: var(--c-button-transition) !important;
+}
+
+.cky-btn-revisit-wrapper:hover {
+  background: var(--s-interactive-primary-hover) !important;
+}
+
+.cky-btn-revisit-wrapper:active {
+  background: var(--c-button-primary-bg-active) !important;
+}
+
+/* Originalbild ausblenden */
+.cky-btn-revisit > img {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+/* “neues Icon” als Maske */
+.cky-btn-revisit::before {
+  content: "";
+  width: 30px;
+  /* Icongröße */
+  height: 30px;
+  background-color: var(--s-text-on-primary);
+  -webkit-mask-image: url("https://contexagon.com/wp-content/plugins/cookie-law-info/lite/frontend/images/revisit.svg");
+  mask-image: url("https://contexagon.com/wp-content/plugins/cookie-law-info/lite/frontend/images/revisit.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* Modal */
+.cky-modal,
+.cky-consent-bar {
+  background: var(--s-surface-neutral-overlay) !important;
+  color: var(--s-text-primary) !important;
+  border: var(--c-card-solid-border) !important;
+  border-radius: var(--p-radius-l) !important;
+  box-shadow: var(--s-shadow-overlay) !important;
+  transition: all var(--p-transition-duration-fast) var(--p-transition-timing) !important;
+}
+
+.cky-consent-container {
+  width: 500px !important;
+}
+
+.cky-box-bottom-left {
+  bottom: var(--p-spacing-xl) !important;
+  left: var(--p-spacing-m) !important;
+}
+
+.cky-notice-btn-wrapper {
+  row-gap: 1rem !important;
+}
+
+.cky-preference-center {
+  background-color: var(--s-surface-neutral-overlay) !important;
+  color: var(--s-text-primary) !important;
+  border-color: var(--s-border-neutral-default) !important;
+}
+
+.cky-preference-title,
+.cky-accordion-header,
+.cky-accordion-btn {
+  font-family: var(--p-font-family-heading) !important;
+  font-weight: var(--s-font-weight-heading) !important;
+  font-size: calc(
+    var(--s-font-size-h4) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-body) !important;
+  color: var(--s-text-primary) !important;
+}
+
+.cky-preference-content-wrapper,
+.cky-accordion-header-des {
+  margin: 4px 0 16px 0 !important;
+  font-family: var(--p-font-family-base) !important;
+  font-weight: var(--s-font-weight-body) !important;
+  font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-body) !important;
+  color: var(--s-text-primary) !important;
+}
+
+.cky-title {
+  margin-bottom: 1em;
+  /* var(--p-spacing-3xs) */
+  font-family: var(--p-font-family-heading) !important;
+  font-weight: var(--s-font-weight-heading) !important;
+  font-size: calc(
+    var(--s-font-size-body) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-body) !important;
+  color: var(--s-text-primary) !important;
+}
+
+.cky-notice-des > p {
+  margin-bottom: 1em;
+  /* var(--p-spacing-3xs) */
+  font-family: var(--p-font-family-base) !important;
+  font-weight: var(--s-font-weight-body) !important;
+  font-size: calc(
+    var(--s-font-size-small) * var(--_font-scale-multiplier)
+  ) !important;
+  line-height: var(--s-line-height-small) !important;
+  color: var(--s-text-primary) !important;
+}
+
+.cky-always-active,
+.cky-show-desc-btn {
+  font-size: calc(
+    var(--s-font-size-small) * var(--_font-scale-multiplier)
+  ) !important;
+  color: var(--s-interactive-primary) !important;
+}
+
+.cky-preference-header .cky-btn-close img {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* Chevron */
+.cky-accordion-chevron {
+  margin-right: 28px !important;
+}
+
+.cky-accordion .cky-accordion-chevron i::before {
+  top: 13px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-right: 3px solid !important;
+  border-bottom: 3px solid !important;
+}
+
+.cky-audit-table {
+  background: var(--s-surface-neutral-overlay) !important;
+  color: var(--s-text-primary) !important;
+  border-radius: var(--p-radius-s) !important;
+}
+
+.cky-footer-shadow {
+  background: none !important;
+}
+
+.cky-empty-cookies-text {
+  color: var(--s-text-primary) !important;
+}
+
+/* Buttons */
+.cky-btn {
+  /* Layout */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--c-button-gap) !important;
+  min-height: var(--c-button-small-min-height) !important;
+  padding: var(--c-button-small-padding-block)
+    var(--c-button-small-padding-inline) !important;
+  border-radius: var(--c-button-radius) !important;
+
+  /* Typography */
+  font-size: var(--c-button-small-font-size) !important;
+  line-height: var(--c-button-line-height) !important;
+  font-weight: var(--c-button-font-weight) !important;
+  text-decoration: none;
+
+  /* Interaction */
+  border: none !important;
+  cursor: pointer !important;
+  transition: var(--c-button-transition) !important;
+
+  /* Default appearance reset */
+  background: none !important;
+  color: inherit !important;
+}
+
+/*--- Primary Button ---*/
+.cky-btn-accept {
+  background-color: var(--c-button-primary-bg) !important;
+  color: var(--c-button-primary-text) !important;
+  border: var(--c-button-primary-border) !important;
+  box-shadow: var(--c-button-primary-shadow) !important;
+}
+
+.cky-btn-accept:focus-visible {
+  outline: 3px solid var(--s-focus-ring, var(--p-accent-500)) !important;
+  outline-offset: 4px !important;
+  border-radius: 2px !important;
+  background-color: var(--c-button-primary-bg-hover) !important;
+  color: var(--c-button-primary-text) !important;
+  box-shadow: none !important;
+}
+
+.cky-btn-accept:hover:not(:disabled) {
+  background-color: var(--c-button-primary-bg-hover) !important;
+}
+
+.cky-btn-accept:active:not(:disabled) {
+  background-color: var(--c-button-primary-bg-active) !important;
+  transform: translateY(1px) !important;
+}
+
+/*--- Secondary Button ---*/
+.cky-btn-reject,
+.cky-btn-preferences,
+.cky-btn-customize {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: var(--c-button-secondary-bg) !important;
+  color: var(--c-button-secondary-text) !important;
+  border: var(--c-button-secondary-border-width) solid
+    var(--c-button-secondary-border-color) !important;
+  box-shadow: var(--c-button-secondary-shadow) !important;
+}
+
+/* Hover State */
+.cky-btn-reject:hover:not(:disabled):not([aria-disabled="true"]),
+.cky-btn-preferences:hover:not(:disabled):not([aria-disabled="true"]),
+.cky-btn-customize:hover:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--c-button-secondary-bg-hover) !important;
+  border-color: var(--c-button-secondary-border-hover) !important;
+}
+
+/* Active/Pressed State */
+.cky-btn-reject:active:not(:disabled):not([aria-disabled="true"]),
+.cky-btn-preferences:active:not(:disabled):not([aria-disabled="true"]),
+.cky-btn-customize:active:not(:disabled):not([aria-disabled="true"]) {
+  background-color: var(--c-button-secondary-bg-active) !important;
+  transform: translateY(1px) !important;
+}
+
+/* Focus State */
+.cky-btn-reject:focus-visible,
+.cky-btn-preferences:focus-visible,
+.cky-btn-customize:focus-visible {
+  outline: var(--s-focus-ring-width) solid var(--s-focus-ring) !important;
+  outline-offset: var(--s-focus-ring-offset) !important;
+}

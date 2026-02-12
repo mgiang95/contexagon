@@ -12,3 +12,8 @@
   transition: transform 0.15s ease-out;
   z-index: 1;
 }
+
+/* Text highlight */
+*::selection {
+  background-color: color-mix(in oklch, var(--p-accent-500) 40%, transparent);
+}
